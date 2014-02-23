@@ -74,7 +74,7 @@ gem 'cancan'
 gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
-gem 'pg'
+
 gem 'rolify'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
