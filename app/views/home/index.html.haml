@@ -83,7 +83,7 @@
             Find Events
           %form.bottom-line.line-before{action: "?", method: "get"}
             %label Location
-            %input.input-block-level{name: "", placeholder: "Type Your Location", required: "", type: "text", value: ""}/
+            %input.input-block-level{name: "location", placeholder: "Type Your Location", required: "", type: "text", value: "Boston, MA"}/
             %label Radius
             %select.input-block-level{name: "", required: ""}
               %option{value: ""} This area only
@@ -99,25 +99,14 @@
               %option{value: ""} Within 40 miles
             .control-group-form
               .control-group.half.pull-left
-                %label.control-label Min Price
+                %label.control-label Start Date
                 .controls
-                  %select.input-block-level{name: "", required: ""}
-                    %option{value: ""} All
-                    %option{value: "1"} 1000
-                    %option{value: "9"} 2000
-                    %option{value: "9"} 3000
-                    %option{value: "9"} 4000
-                    %option{value: "9"} 5000+
+                  %input.input-block-level{name: "start_date", placeholder: "Start Date", required: "", type: "text", value: ""}
+  
               .control-group.half.text-right.pull-right
-                %label.control-label Max Price
+                %label.control-label End Date
                 .controls
-                  %select.input-block-level{name: "", required: ""}
-                    %option{value: ""} All
-                    %option{value: "1"} 10000
-                    %option{value: "9"} 20000
-                    %option{value: "9"} 30000
-                    %option{value: "9"} 40000
-                    %option{value: "9"} 50000+
+                  %input.input-block-level{name: "end_date", placeholder: "End Date", required: "", type: "text", value: ""}
                 .clearfix
               .control-group-form
                 .control-group.half.pull-left
