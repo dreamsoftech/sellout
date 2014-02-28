@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
+//= require jquery.carouFredSel-6.2.1
+//= require jquery.grid-a-licious
+//= require gmap3
+//= require proper

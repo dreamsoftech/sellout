@@ -1,1 +1,169 @@
-%h3 Home
+#content
+  .panel.googleMaparea
+    #googleMap
+    .map-with-agent.visible-desktop
+      %h3 Easy to search concerts around you.
+      %img{alt: "ceo", src: "/assets/agents/n5.png"}/
+  / News Carousel
+  .news-carousel-wrapper
+    %dl#news-carousel.news-carousel-style
+      %dt
+        %a{href: "#"} News Link Here
+      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
+      %dt
+        %a{href: "#"} Promo Link Here
+      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
+      %dt
+        %a{href: "#"} Another Link Here
+      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
+  / End News Carousel
+  .container
+    .row-fluid
+      .span9
+        .panel.right-line
+          / Start Grid Featured
+          %h2.main-heading.bottom-line
+            %span.main-circle-icon
+              %i.icon-building
+            Concerts Around you
+          .featured-grid.right-space
+            .box-white
+              .grid-item.grid-style-properties
+                - @events.each_with_index do |event, i|
+                  .item
+                    %a.with-hover{href: "#"}
+                      = image_tag artist_image_url(event), class: "full"
+                      %span.mask_hover
+                    %h4= event.datetime
+                    .preview-properties
+                      .box-detail
+                        %p.text-center.short-detail
+                          - event.artists.each do |artist|
+                            %span.label
+                              %i.icon-user
+                              = artist.name
+                          
+                          %span.price
+                        .clearfix
+                          %a.btn-proper.btn.btn-small.pull-left{href: "#"} See Detail
+                          %a.btn-proper.btn.btn-small.pull-right{href: "#"} Compare
+
+            / End Grid Featured
+          / Start New List
+          %h2.main-heading.bottom-line.top-line
+            %span.main-circle-icon
+              %i.icon-book
+            News
+          .news.right-space
+            .media.box-white
+              %a.pull-left{href: "#"}
+                %img.media-object{alt: "images", src: "/assets/news/thum/n1.jpg"}
+              .media-body
+                %h4.media-heading Investor Club
+                %p
+                  Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
+                  Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
+                %a.btn-proper.btn.btn-small{href: "#"} Read More
+              .media.box-white
+                %a.pull-left{href: "#"}
+                  %img.media-object{alt: "images", src: "http://placehold.it/150x90"}
+                .media-body
+                  %h4.media-heading Investor Club
+                  %p
+                    Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
+                    Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
+                  %a.btn-proper.btn.btn-small{href: "#"} Read More
+              / End News List
+      .span3
+        .panel
+          / Start Form Search Properties
+          %h3.main-heading.bottom-line.line-before
+            %span.main-circle-icon
+              %i.icon-search
+            Find Events
+          %form.bottom-line.line-before{action: "?", method: "get"}
+            %label Location
+            %input.input-block-level{name: "", placeholder: "Type Your Location", required: "", type: "text", value: ""}/
+            %label Radius
+            %select.input-block-level{name: "", required: ""}
+              %option{value: ""} This area only
+              %option{value: ""} Within 1/4 mile
+              %option{value: ""} Within 1/2 mile
+              %option{value: ""} Within 1 mile
+              %option{value: ""} Within 3 miles
+              %option{value: ""} Within 5 miles
+              %option{value: ""} Within 10 miles
+              %option{value: ""} Within 15 miles
+              %option{value: ""} Within 20 miles
+              %option{value: ""} Within 30 miles
+              %option{value: ""} Within 40 miles
+            .control-group-form
+              .control-group.half.pull-left
+                %label.control-label Min Price
+                .controls
+                  %select.input-block-level{name: "", required: ""}
+                    %option{value: ""} All
+                    %option{value: "1"} 1000
+                    %option{value: "9"} 2000
+                    %option{value: "9"} 3000
+                    %option{value: "9"} 4000
+                    %option{value: "9"} 5000+
+              .control-group.half.text-right.pull-right
+                %label.control-label Max Price
+                .controls
+                  %select.input-block-level{name: "", required: ""}
+                    %option{value: ""} All
+                    %option{value: "1"} 10000
+                    %option{value: "9"} 20000
+                    %option{value: "9"} 30000
+                    %option{value: "9"} 40000
+                    %option{value: "9"} 50000+
+                .clearfix
+              .control-group-form
+                .control-group.half.pull-left
+                  %label.checkbox
+                    %input{type: "checkbox"}
+                      Recommended
+                .control-group.half.text-left.pull-right
+                  %label.checkbox
+                    %input{type: "checkbox"}
+                      Sale
+              %button.input-block-level.btn-proper.btn.btn-large{type: "submit"} Search
+
+              / Start List Our Agent
+              %h3.bottom-line.line-before.main-heading
+                %span.main-circle-icon
+                  %i.icon-list
+                Artists
+              .list-items
+                .item
+                  .img-preview
+                    %img{alt: "Corin Langpost", src: "/assets/agents/thum_list/a2.jpg"}/
+                  .item-desk
+                    .title
+                      %h3
+                        %a{href: "#"} Angelina Cos
+                    .location Palo Alto CA
+                    %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
+                  .clearfix
+                .item
+                  .img-preview
+                    %img{alt: "Corin Langpost", src: "/assets/agents/thum_list/a1.jpg"}/
+                  .item-desk
+                    .title
+                      %h3
+                        %a{href: "#"} Angelina Cos
+                    .location Palo Alto CA
+                    %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
+                  .clearfix
+                .item
+                  .img-preview
+                    %img{alt: "Corin Langpost", src: "http://placehold.it/100x80"}/
+                  .item-desk
+                    .title
+                      %h3
+                        %a{href: "#"} Angelina Cos
+                    .location Palo Alto CA
+                    %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
+                  .clearfix
+              / End List Our AGents

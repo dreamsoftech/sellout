@@ -1,14 +1,18 @@
--# navigation styled for Bootstrap 2.3
-.navbar
-  .navbar-inner
-    .container
-      %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      .nav-collapse.collapse
-        .navbar.navbar-fixed-top
-          %nav.navbar-inner
+/ start Navigation
+#navigation
+  .container
+    .navbar.navbar-inverse
+      .navbar-inner
+        .container
+          %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %span.brand.visible-phone.visible-tablet Navbar
+          / .nav-collapse
+          .nav-collapse.collapse
             %ul.nav
-              = link_to 'Home', root_path, class: 'brand'
-              = render 'layouts/navigation_links'
+              = render "layouts/navigation_links"
+              / %a.pull-right.mylisting{href: "upload_step1.html"}
+              /   %i.icon-folder-close-alt
+              /   Upload Items

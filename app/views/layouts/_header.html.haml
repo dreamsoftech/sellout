@@ -1,0 +1,27 @@
+/ start header-wrapper
+#header-wrapper
+  .container
+    .panel
+      .row-fluid
+        .span9.right-line
+          %a.brand{href: "index.html"}
+            %h1.font-caly
+              %img{alt: "logo", src: "/assets/logo.png", width: "40"}
+                Sellout
+                %small.visible-desktop.visible-tablet Concert app platform
+        .span3
+          .clearfix
+            .language_curency
+              Curency:
+              %a{href: "#"} $
+              |
+              %a{href: "#"}
+              lang:
+              %a{href: "#"} English
+              |
+              %a{href: "#"} Spain
+            %form.form-search{method: "get"}
+              .input-append
+                %input.search-query.form-text.input-block-level{name: "", placeholder: "Search", title: "Keywords.", type: "text"}
+                  %button.btn{type: "submit"}
+                    %i.icon-search

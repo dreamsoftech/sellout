@@ -1,0 +1,1 @@
+Bandsintown.app_id = 'Kevin_Andrei_Sellout_platform'

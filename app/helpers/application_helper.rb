@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module ApplicationHelper
 
   def display_base_errors resource
@@ -10,6 +12,11 @@ module ApplicationHelper
     </div>
     HTML
     html.html_safe
+  end
+
+  def artist_image_url(event)
+    artist = event.artists.first
+    artist.image_url unless artist.nil?
   end
 
 end
