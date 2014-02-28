@@ -2,7 +2,7 @@
 class HomeController < ApplicationController
 
 	def index
-		params[:location] = "Boston, MA" if params[:location].nil?
+		params[:location] = request.location.address if params[:location].nil?
 		@events = Bandsintown::Event.search({
 		  :location => params[:location], 
 		  :start_date => Time.now,

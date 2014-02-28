@@ -6,7 +6,7 @@ $(function(){
     $("#googleMap").gmap3({
         map:{
             // CENTRAL MAP DEFAULT
-            address:"Charlestown, USA",
+            address: "<%= params[:location].nil? ? request.location : params[:location] %>",
             options:{
                 zoom:12,
                 scaleControl: false,
