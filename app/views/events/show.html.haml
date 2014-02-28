@@ -1,0 +1,89 @@
+#content
+  .news-carousel-wrapper
+    %dl#news-carousel.news-carousel-style
+      %dt
+        %a{href: "#"} News Link Here
+      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
+      %dt
+        %a{href: "#"} Promo Link Here
+      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
+      %dt
+        %a{href: "#"} Another Link Here
+      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
+  / End News Carousel
+  .container
+    .row-fluid
+      .span9
+        .panel.right-line
+          %h2.main-heading.bottom-line
+            %span.main-circle-icon
+              %i.icon-building
+            #{@artist.name}'s Upcoming events
+          %table.table.table-hover
+            %thead
+              %tr
+                %th Title
+                %th Description
+                %th Venue
+                %th Date
+                %th Artists
+                %th Ticket Status
+            %tbody
+              - @artist.events.each do |event|
+                %tr
+                  %td=event.title
+                  %td=event.description
+                  %td #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
+                  %td=event.datetime
+                  %td
+                    - event.artists.each do |artist|
+                      #{artist.name}, 
+                  %td=event.ticket_status
+            
+            / END DETAIL
+      .span3
+        .panel
+          / MAP LOCATION
+          %h3.main-heading.bottom-line.line-before
+            %span.main-circle-icon
+              %i.icon-map-marker
+            Location
+          .bottom-line.line-before
+            %iframe#map-location{frameborder: "0", height: "250", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?f=q&source=s_q&hl=id&geocode=&q=arvada&aq=&sll=39.777936,-105.074272&sspn=0.149605,0.338173&ie=UTF8&hq=&hnear=Arvada,+Jefferson,+Colorado&ll=39.802764,-105.087484&spn=0.299124,0.676346&t=m&z=11&output=embed", width: "100%"}
+          / END MAP LOCATION
+          / Detail Agent
+          %h3.main-heading.bottom-line.line-before
+            %span.main-circle-icon
+              %i.icon-user
+            Artist
+          .agent-panel.bottom-line.line-before
+            %a.agent-image{href: "#"}
+              %img.img-polaroid{alt: "agent", src: "#{@artist.image_url}"}/
+            %ul.unstyled.margin20
+              %li
+                %i.icon-phone
+                (+89)98732.984
+              %li
+                %i.icon-envelope
+                agent@company.com
+              %li
+                %i.icon-facebook
+                angel
+              %li
+                %i.icon-twitter
+                @angel
+          / END Detail Agent
+          / FORM CONTACT
+          %h3.main-heading.bottom-line.line-before
+            %span.main-circle-icon
+              %i.icon-envelope-alt
+            Contact Agent
+          %form
+            %label Name
+            %input.input-block-level{name: "name", placeholder: "Enter Your Name", required: "", type: "text"}/
+            %label Email
+            %input.input-block-level{name: "email", placeholder: "Enter Your Email", required: "", type: "email"}/
+            %label Message
+            %textarea.input-block-level{name: "message", placeholder: "Your Message", required: "", rows: "5"}
+            .clearfix
+              %input.btn.btn-proper{type: "submit", value: "Send"}/

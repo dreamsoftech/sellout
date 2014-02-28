@@ -6,8 +6,7 @@ $( document ).ready(function() {
     init_tabs();
     /*link back to top animation*/
     init_back_to_top();
-    /*google map Config*/
-    init_gmap3();
+
     /*backgroung Config*/
     init_bgswitch();
     /*light box Config*/

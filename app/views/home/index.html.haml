@@ -3,7 +3,7 @@
     #googleMap
     .map-with-agent.visible-desktop
       %h3 Easy to search concerts around you.
-      %img{alt: "ceo", src: "/assets/agents/n5.png"}/
+      %img{alt: "ceo", src: "/assets/agents/n5.png"}
   / News Carousel
   .news-carousel-wrapper
     %dl#news-carousel.news-carousel-style
@@ -31,10 +31,10 @@
               .grid-item.grid-style-properties
                 - @events.each_with_index do |event, i|
                   .item
-                    %a.with-hover{href: "#"}
+                    %a.with-hover{href: "events/#{event.artists[0].mbid}"}
                       = image_tag artist_image_url(event), class: "full"
                       %span.mask_hover
-                    %h4= event.datetime
+                    %h4 #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
                     .preview-properties
                       .box-detail
                         %p.text-center.short-detail
@@ -46,7 +46,7 @@
                           %span.price
                         .clearfix
                           %a.btn-proper.btn.btn-small.pull-left{href: "#"} See Detail
-                          %a.btn-proper.btn.btn-small.pull-right{href: "#"} Compare
+                          %a.btn-proper.btn.btn-small.pull-right{href: "#"} Add Ticket
 
             / End Grid Featured
           / Start New List
@@ -136,34 +136,17 @@
                   %i.icon-list
                 Artists
               .list-items
-                .item
-                  .img-preview
-                    %img{alt: "Corin Langpost", src: "/assets/agents/thum_list/a2.jpg"}/
-                  .item-desk
-                    .title
-                      %h3
-                        %a{href: "#"} Angelina Cos
-                    .location Palo Alto CA
-                    %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
-                  .clearfix
-                .item
-                  .img-preview
-                    %img{alt: "Corin Langpost", src: "/assets/agents/thum_list/a1.jpg"}/
-                  .item-desk
-                    .title
-                      %h3
-                        %a{href: "#"} Angelina Cos
-                    .location Palo Alto CA
-                    %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
-                  .clearfix
-                .item
-                  .img-preview
-                    %img{alt: "Corin Langpost", src: "http://placehold.it/100x80"}/
-                  .item-desk
-                    .title
-                      %h3
-                        %a{href: "#"} Angelina Cos
-                    .location Palo Alto CA
-                    %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
-                  .clearfix
+                - @events.each do |event|
+                  - event.artists.each do |artist|
+                    .item
+                      .img-preview
+                        %img{alt: "#{artist.name}", src: artist.image_url}
+                      .item-desk
+                        .title
+                          %h3
+                            %a{href: "#"}= artist.name
+                        .location #{event.venue.name}
+                        %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
+                      .clearfix
               / End List Our AGents
+= render template: "home/map.js.erb"

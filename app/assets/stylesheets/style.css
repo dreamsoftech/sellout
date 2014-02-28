@@ -166,7 +166,7 @@ Map Css
 
 #googleMap{width: 100%;height: 400px;display: block;}
 #googleMap img{max-width: none;}
-#googleMap .info-location{overflow: hidden;cursor: default;clear: both;position: relative;height: 123px;width: 250px;margin-top: -90px;padding: 0pt;background-color: rgb(57, 57, 57);border: 1px solid #2C2C2C;}
+#googleMap .info-location{overflow: hidden;cursor: default;clear: both;position: relative; display: "table";width: 250px;margin-top: -90px;padding: 0pt;background-color: rgb(57, 57, 57);border: 1px solid #2C2C2C;}
 #googleMap .info-location img{float: left;margin: 0 10px 10px 0;}
 #googleMap .info-location h4{margin-top: 0;}
 #googleMap .info-location .text{color:#FFFFFF;font-size:11px;padding:10px;}

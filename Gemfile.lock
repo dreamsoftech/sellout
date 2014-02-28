@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/reedkevin88/bandsintown.git
-  revision: ae3daeda3987238a042827bc7ec38abcd63b3cfd
+  revision: 988256e7b3f19108c394ea83079ffd2a99d5f7a0
   specs:
     bandsintown (0.0.0)
 

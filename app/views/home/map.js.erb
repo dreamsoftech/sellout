@@ -1,7 +1,8 @@
+<script>
 $(function(){
+
     var icon_villa = "/assets/map/hostel_0star.png"
     var icon_hotel = "/assets/map/villa.png"
-    var img_p = "/assets/properties/p1.jpg"
     $("#googleMap").gmap3({
         map:{
             // CENTRAL MAP DEFAULT
@@ -20,24 +21,20 @@ $(function(){
         marker:{
             // DATA LOCATION
             values:[
-            <%= @events.each do |event| %>
+            <% @events.each do |event| %>
                 {
-                    latLng:[event., -71.0736], 
+                    latLng:[<%= event.venue.latitude %>, <%= event.venue.longitude %>], 
                     data:{
-                        img_preview: img_p, 
-                        properties_name:"023 Central Park [Rent]", 
+                        img_preview: "<%= artist_image_url(event) %>", 
+                        properties_name: "<%= event.venue.name + ', ' + event.venue.city + ', ' + event.venue.region %>",
                         properties_desc:"Lorem Ipsum Go Green",
-                        properties_link:"#", 
-                        zip:001233, 
-                        city:"Jakarta"
+                        properties_link:"#"
                     }, 
                     options:{
                         icon: icon_hotel
                     }
                 },
-            <% end %>
-
-            
+            <% end %>            
             ],
             events:{
                 mouseover: function(marker, event, context){
@@ -73,3 +70,4 @@ $(function(){
 		
     });
 });
+</script>
