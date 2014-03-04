@@ -81,34 +81,19 @@
             %span.main-circle-icon
               %i.icon-search
             Find Events
-          %p
-            = request.location.inspect
           %form.bottom-line.line-before{action: "/", method: "get"}
             %label Location
             %input.input-block-level{name: "location", placeholder: "Type Your Location", required: "", type: "text", value: "#{params[:location]}"}
-            %label Radius
-            %select.input-block-level{name: "", required: ""}
-              %option{value: ""} This area only
-              %option{value: ""} Within 1/4 mile
-              %option{value: ""} Within 1/2 mile
-              %option{value: ""} Within 1 mile
-              %option{value: ""} Within 3 miles
-              %option{value: ""} Within 5 miles
-              %option{value: ""} Within 10 miles
-              %option{value: ""} Within 15 miles
-              %option{value: ""} Within 20 miles
-              %option{value: ""} Within 30 miles
-              %option{value: ""} Within 40 miles
             .control-group-form
               .control-group.half.pull-left
                 %label.control-label Start Date
                 .controls
-                  %input.input-block-level{name: "start_date", placeholder: "Start Date", required: "", type: "text", value: ""}
+                  %input.input-block-level.datepicker{name: "start_date", placeholder: "Start Date", required: "", type: "text", value: "#{params[:start_date]}"}
   
               .control-group.half.text-right.pull-right
                 %label.control-label End Date
                 .controls
-                  %input.input-block-level{name: "end_date", placeholder: "End Date", required: "", type: "text", value: ""}
+                  %input.input-block-level.datepicker{name: "end_date", placeholder: "End Date", required: "", type: "text", value: "#{params[:end_date]}"}
                 .clearfix
               .control-group-form
                 .control-group.half.pull-left

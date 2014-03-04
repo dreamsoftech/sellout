@@ -297,9 +297,9 @@ DETAIL PROPERPERTY PAGE
 .detail-properties .list_image_detail li {font-size: 40px;color: #999;text-align: center;background-color: #eee;border: 3px solid #353535;width: 50px;height: 60px;padding: 0;margin: 6px;display: block;float: left;overflow: hidden;}
 .detail-properties .list_image_detail li:hover{opacity:0.6;-webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;-ms-transition: all 0.25s ease-out 0s;-o-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;}
 .detail-properties .list_image_detail.responsive {width: auto;margin-left: 0;}
-.detail-properties .prev, .next{position: absolute;padding: 10px;background: #141414;bottom: 18px;color: white;text-decoration: none;border: 1px solid transparent;box-shadow: 0 1px 6px rgba(0,0,0,0.7);-o-box-shadow: 0 1px 6px rgba(0,0,0,0.7);-webkit-box-shadow: 0 1px 6px rgba(0,0,0,0.7);-moz-box-shadow: 0 1px 6px rgba(0,0,0,0.7);}
-.detail-properties .prev:hover, .next:hover{color: white;text-decoration: none;border: 1px solid #141414;background: #353535;}
-.detail-properties .prev {   left: -24px;}
+.detail-properties .prev, .detail-properties .next{position: absolute;padding: 10px;background: #141414;bottom: 18px;color: white;text-decoration: none;border: 1px solid transparent;box-shadow: 0 1px 6px rgba(0,0,0,0.7);-o-box-shadow: 0 1px 6px rgba(0,0,0,0.7);-webkit-box-shadow: 0 1px 6px rgba(0,0,0,0.7);-moz-box-shadow: 0 1px 6px rgba(0,0,0,0.7);}
+.detail-properties .prev:hover, .detail-properties .next:hover{color: white;text-decoration: none;border: 1px solid #141414;background: #353535;}
+.detail-properties .prev {left: -24px;}
 .detail-properties .next {right: -24px;}
 .detail-properties .big-image{box-shadow: 0 1px 6px rgba(0,0,0,0.7);-o-box-shadow: 0 1px 6px rgba(0,0,0,0.7);-webkit-box-shadow: 0 1px 6px rgba(0,0,0,0.7);-moz-box-shadow: 0 1px 6px rgba(0,0,0,0.7);margin-bottom: 20px;background: #3D3D3D;position: relative;}
 .detail-properties .big-image .preloader{position: absolute;top:0;left: 0;width: 100%;height: 100%;display: none;box-shadow: 0 1px 6px rgba(0,0,0,0.7);-o-box-shadow: 0 1px 6px rgba(0,0,0,0.7);-webkit-box-shadow: 0 1px 6px rgba(0,0,0,0.7);-moz-box-shadow: 0 1px 6px rgba(0,0,0,0.7);z-index: 2;background: white url(/assets/ajax-loader.gif) no-repeat center center;}
