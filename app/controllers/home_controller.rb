@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 		if Rails.env.development?
 			params[:location] = "New york" if params[:location].nil?
 		else
-			params[:location] = "New york" if params[:location].nil?
+			params[:location] = request.location.try(:city) || "Charlestown" if params[:location].nil?
 		end
 
 		@events = Bandsintown::Event.search({
