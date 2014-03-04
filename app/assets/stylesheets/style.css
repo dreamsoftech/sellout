@@ -33,18 +33,16 @@ header-wrapper
 /* ==========================================================================
    Navbar Styles
    ========================================================================== */ 
-#navigation{background-color:  #5c5c5c;border-bottom:  1px solid #141414;}
+#navigation{background-color: black;}
 #navigation .mylisting{padding: 10px;background: #3D3D3D;color: #CCC;margin-top: 10px;border: 1px solid #141414;text-decoration: none;}
 #navigation .mylisting:hover{background: #5c5c5c;border: 1px solid #CCC;}
-#navigation a.brand{font-size: 30px;}
-.navbar-inverse .navbar-inner {background: #5c5c5c !important;border-color: transparent;filter:none;}
+#navigation a.brand{font-size: 30px; font-weight: bold}
 .navbar-inner .brand{margin-top: 7px;}
 .navbar-inverse .btn-navbar {margin-top: 20px;}
-.navbar{margin: 0;}
 .navbar-inner {-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;border: none;min-height: 64px;filter:none;}
+.navbar{margin-bottom: 0;}
 .navbar .nav{margin: 0;}
 .navbar .brand {padding-top: 15px;}
-.navbar-inner{padding: 0;}
 .navbar-inverse a{-webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;-ms-transition: all 0.25s ease-out 0s;-o-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;}
 .navbar-inverse a:hover{padding-left: 20px;}
 .navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {background: #3d3d3d !important; color: #FFFFFF;border-left: 1px solid #141414;border-right: 1px solid #141414;}

@@ -1,8 +1,12 @@
-
 class HomeController < ApplicationController
 
 	def index
-		params[:location] = request.location.address if params[:location].nil?
+		if Rails.env.development?
+			params[:location] = "New york" if params[:location].nil?
+		else
+			params[:location] = request.location.city + ", " + request.location.region_name if params[:location].nil?
+		end
+
 		@events = Bandsintown::Event.search({
 		  :location => params[:location], 
 		  :start_date => Time.now,

@@ -3,16 +3,15 @@
   .container
     .navbar.navbar-inverse
       .navbar-inner
-        .container
-          %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", type: "button"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %span.brand.visible-phone.visible-tablet Navbar
-          / .nav-collapse
-          .nav-collapse.collapse
-            %ul.nav
-              = render "layouts/navigation_links"
-              / %a.pull-right.mylisting{href: "upload_step1.html"}
-              /   %i.icon-folder-close-alt
-              /   Upload Items
+        %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", type: "button"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %span.brand Sellout
+        / .nav-collapse
+        .nav-collapse.collapse
+          %ul.nav
+            = render "layouts/navigation_links"
+            / %a.pull-right.mylisting{href: "upload_step1.html"}
+            /   %i.icon-folder-close-alt
+            /   Upload Items
