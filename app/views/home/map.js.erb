@@ -1,73 +1,70 @@
 <script>
-$(function(){
-
-    var icon_villa = "/assets/map/hostel_0star.png";
-    var icon_hotel = "/assets/map/villa.png";
-    $("#googleMap").gmap3({
-        map:{
-            // CENTRAL MAP DEFAULT
-            address: "<%= params[:location].nil? ? request.location : params[:location] %>",
-            options:{
-                zoom:12,
-                scaleControl: false,
-                scrollwheel: false,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                mapTypeControl: true,
-                mapTypeControlOptions: {
-                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-                }
-            }
-        },
-        marker:{
-            // DATA LOCATION
-            values:[
-            <% @events.each do |event| %>
-                {
-                    latLng:[<%= event.venue.latitude %>, <%= event.venue.longitude %>], 
-                    data:{
-                        img_preview: "<%= artist_image_url(event) %>", 
-                        properties_name: "<%= event.venue.name + ', ' + event.venue.city + ', ' + event.venue.region %>",
-                        properties_desc:"Lorem Ipsum Go Green",
-                        properties_link:"#"
-                    }, 
-                    options:{
-                        icon: icon_hotel
-                    }
-                },
-            <% end %>            
-            ],
-            events:{
-                mouseover: function(marker, event, context){
-                    $(this).gmap3(
-                    {
-                        clear:"overlay"
-                    },
-
-                    {
-                        overlay:{
-                            latLng: marker.getPosition(),
-                            options:{
-                                content:  "<div class='info-location'>" +
-                                "<div class='text'><h4>" 
-                                + context.data.properties_name +
-                                "</h4>"+
-                                "<img src='"+ context.data.img_preview +"' width=90> $300.999 <br/>"+
-                                context.data.properties_desc +
-                                "<br/><a href='"+context.data.properties_link +"'class='btn btn-proper btn-small'>See Detail</a></div>" +
-                                "</div>" +
-                                "<div class='arrow-location'></div>",
-                                offset: {
-                                    x:-46,
-                                    y:-73
-                                }
-                            }
-                        }
-                    });
-                }
-                
+var icon_villa = "/assets/map/hostel_0star.png";
+var icon_hotel = "/assets/map/villa.png";
+$("#googleMap").gmap3({
+    map:{
+        // CENTRAL MAP DEFAULT
+        address: "<%= params[:location].nil? ? request.location : params[:location] %>",
+        options:{
+            zoom:12,
+            scaleControl: false,
+            scrollwheel: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
             }
         }
-		
-    });
+    },
+    marker:{
+        // DATA LOCATION
+        values:[
+        <% @events.each do |event| %>
+            {
+                latLng:[<%= event.venue.latitude %>, <%= event.venue.longitude %>], 
+                data:{
+                    img_preview: "<%= artist_image_url(event) %>", 
+                    properties_name: "<%= event.venue.name + ', ' + event.venue.city + ', ' + event.venue.region %>",
+                    properties_desc:"Lorem Ipsum Go Green",
+                    properties_link:"#"
+                }, 
+                options:{
+                    icon: icon_hotel
+                }
+            },
+        <% end %>            
+        ],
+        events:{
+            mouseover: function(marker, event, context){
+                $(this).gmap3(
+                {
+                    clear:"overlay"
+                },
+
+                {
+                    overlay:{
+                        latLng: marker.getPosition(),
+                        options:{
+                            content:  "<div class='info-location'>" +
+                            "<div class='text'><h4>" 
+                            + context.data.properties_name +
+                            "</h4>"+
+                            "<img src='"+ context.data.img_preview +"' width=90> $300.999 <br/>"+
+                            context.data.properties_desc +
+                            "<br/><a href='"+context.data.properties_link +"'class='btn btn-proper btn-small'>See Detail</a></div>" +
+                            "</div>" +
+                            "<div class='arrow-location'></div>",
+                            offset: {
+                                x:-46,
+                                y:-73
+                            }
+                        }
+                    }
+                });
+            }
+            
+        }
+    }
+	
 });
 </script>

@@ -2,9 +2,9 @@ class HomeController < ApplicationController
 
 	def index
 		if Rails.env.development?
-			params[:location] = "New york" if params[:location].nil?
+			params[:location] = "Boston, MA" if params[:location].nil?
 		else
-			params[:location] = request.location.try(:address) || "Charlestown" if params[:location].nil?
+			params[:location] = request.location.try(:address) || "Boston, MA" if params[:location].nil?
 		end
 
 		if params[:start_date].nil? || params[:end_date].nil?
@@ -22,6 +22,5 @@ class HomeController < ApplicationController
 			  :end_date => end_date
 			})
 		end
-
 	end
 end

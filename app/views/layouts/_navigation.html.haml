@@ -1,17 +1,25 @@
 / start Navigation
 #navigation
   .container
-    .navbar.navbar-inverse.navbar-fixed-top
+    .navbar.navbar-inverse
       .navbar-inner
         %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", type: "button"}
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %span.brand Sellout
+        %a.brand{href: "/"} Sellout
         / .nav-collapse
         .nav-collapse.collapse
           %ul.nav
             = render "layouts/navigation_links"
-            / %a.pull-right.mylisting{href: "upload_step1.html"}
-            /   %i.icon-folder-close-alt
-            /   Upload Items
+          %ul.nav.pull-right
+            - if user_signed_in?
+              %li
+                = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+              %li
+                = link_to 'Edit account', edit_user_registration_path
+            - else
+              %li
+                = link_to 'Sign up', new_user_registration_path
+              %li
+                = link_to 'Login', new_user_session_path

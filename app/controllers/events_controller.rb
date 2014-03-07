@@ -5,4 +5,7 @@ class EventsController < ApplicationController
 		  :name => params[:id]
 		})
 	end
+
+	def new
+	end
 end

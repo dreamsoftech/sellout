@@ -100,40 +100,6 @@ function init_slider(){
             scroll: _scroll
         });
     }
-    if ($('#carousel').length){
-        $('#carousel').carouFredSel({
-            width: '100%',
-            responsive: true,
-            items: {
-                width: 300,
-                height: "23%",
-                visible: {
-                    min: 1,
-                    max: 1
-                }
-            },
-            scroll: {
-                pauseOnHover: 'resume',
-                fx: 'fade',
-                easing: 'linear',
-                items: 1,
-                duration: 1000,
-                timeoutDuration: 6000
-            },
-            mousewheel: true,
-            swipe: {
-                onMouse: true,
-                onTouch: true
-            },
-            prev: '#prev',
-            next: '#next',
-            pagination: {
-                container: '#pager',
-                deviation: 1
-            }
-        });
-    }
-    
     
     if ($('#list_images_property').length){
         $('#list_images_property').carouFredSel({
@@ -176,7 +142,7 @@ function init_slider(){
 function init_grid(){
     $(".grid-item").gridalicious({
         width: 250,
-        gutter: 10,
+        gutter: 20,
         animate: true,
         effect: 'fadeInOnAppear'
     }); 
@@ -187,6 +153,8 @@ function init_grid(){
         animate: true,
         effect: 'fadeInOnAppear'
     });
+
+    // $(".carousel").carousel({interval: 1000})
 }
 
 

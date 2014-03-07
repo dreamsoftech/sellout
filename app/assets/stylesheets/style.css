@@ -1,9 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Calligraffitti);
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,100italic,300italic,400italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
 
 /* Main settings */
-body {width: 100%; overflow-x: hidden;-webkit-font-smoothing: antialiased;background-color: #DDD;color: #707070;font-size: 13px;height: 100%;margin: 0px;padding: 0px;font-family: 'Roboto', sans-serif;background-image: url(/assets/pattern/diagonal-noise.png)}
-a{color: #707070;}
+body {width: 100%; overflow-x: hidden;-webkit-font-smoothing: antialiased;background-color: #DDD;color: #000;font-size: 13px;height: 100%;margin: 0px;padding: 0px;font-family: 'Open Sans', sans-serif;background-image: url(/assets/pattern/diagonal-noise.png)}
+a{color: #000;}
 a, .btn{-webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;-ms-transition: all 0.25s ease-out 0s;-o-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;}
 h1, h2, h3, h4, h5, h6{font-weight: 300;}
 hr {margin: 20px 0;border: 0;border-top: 1px solid #eee;border-bottom: 1px solid #858585;}
@@ -76,13 +75,13 @@ Content Css
 #content .grid-style-properties{margin-top: 10px;}
 #content .grid-style-properties .preview-properties{border: 1px solid #ccc;padding: 10px;}
 #content .grid-style-properties .preview-properties p{font-size: 12px;}
-#content .grid-style-properties h4{margin: 0;color: white;padding: 10px;background: #3D3D3D;text-align: center;}
+#content .grid-style-properties p{margin: 0;color: black;padding: 10px;text-align: center;}
 #content .grid-style-properties .for_sale_banner, #content .grid-style-properties .for_rent_banner{position: absolute;z-index: 2;width: 60px;height: 50px;top:0;left:0;}
 #content .grid-style-properties .for_rent_banner{background: url('/assets/forrent.png') no-repeat top left;}
 #content .grid-style-properties .for_sale_banner{background: url('/assets/forsale.png') no-repeat top left;}
 #content .grid-style-properties .price{display: block;padding: 10px;font-size: 18px;}
 #content .grid-style-properties .short-detail{margin-bottom: 0;}
-#content .grid-style-properties .with-hover img{height: 216px !important; width: auto; }
+#content .grid-style-properties .with-hover img{width: auto; }
 #content .item-desk .title h3{font-size: 14px;font-weight: bold;margin: 0;line-height: 20px;padding: 0;}
 #content .item-desk .price{font-weight: bold;}
 #content .item-desk .location{font-size: 80%;}
@@ -151,6 +150,7 @@ Grid Galeries
 ============================================================================*/
 #content .grid-galeries .item{box-shadow:1px 2px 4px #CCC;max-width: 320px;overflow: hidden;height: 175px;}
 #content .grid-galeries .item img{height: 100%;overflow: hidden;}
+#content .grid-item .item {box-shadow:2px 2px 10px 3px #999; border-radius: 4px;}
 
 /*============================================================================
 Map Css
@@ -223,12 +223,12 @@ a.box-services:hover{background: #5C5C5C;color: white;}
 a.box-services:hover .circle-icon-service{color: white;-webkit-transform:scale(1.2,1.2) rotate(360deg); /* Safari and Chrome */-moz-transform:scale(1.2,1.2) rotate(360deg); /* Mozilla */-o-transform:scale(1.2,1.2) rotate(360deg); /* IE 9 */-ms-transform:scale(1.2,1.2) rotate(360deg); /* IE 9 */transform:scale(1.2,1.2) rotate(360deg); }
 .wrapper-icon-service{ margin: 10px auto;width: 100px;height: 100px;}
 .circle-icon-service{width: 100px;background: #353535;height: 100px;color: #858585;border-radius:50%;border: 1px solid #141414;box-shadow: 0 1px 1px inset rgba(0,0,0,0.5);vertical-align: middle ;display: table-cell;text-align: center;margin: 30px auto; -webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;-ms-transition: all 0.25s ease-out 0s;-o-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;}
-.box-titte-service{text-align: center;border-bottom: 1px solid #707070;position: relative;margin-bottom: 40px;padding: 20px 0;}
+.box-titte-service{text-align: center;border-bottom: 1px solid #000;position: relative;margin-bottom: 40px;padding: 20px 0;}
 .box-titte-service h1{margin: 0;position: relative;text-shadow: 0 1px 1px rgba(255,255,255,0.5);}
 .box-titte-service h1:before{content: "==";font-size: 18px;margin-right: 10px;}
 .box-titte-service h1:after{content: "==";font-size: 18px;margin-left: 10px;}
-.box-titte-service:before{content: " ";position: absolute;width: 1px;height: 60px;border-left: 1px solid #707070;;bottom: -20px;;left: 0;}
-.box-titte-service:after{content: " ";position: absolute;width: 1px;height: 60px;border-right: 1px solid #707070;;bottom: -20px;;right: 0;}
+.box-titte-service:before{content: " ";position: absolute;width: 1px;height: 60px;border-left: 1px solid #000;;bottom: -20px;;left: 0;}
+.box-titte-service:after{content: " ";position: absolute;width: 1px;height: 60px;border-right: 1px solid #000;;bottom: -20px;;right: 0;}
 
 /*=========================================
 Agent Pages Style
@@ -338,8 +338,10 @@ pricing-style2 Css
 Hover standart style
 ===============================*/
 .with-hover{position: relative;display: block;}
-.with-hover span{-webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;-ms-transition: all 0.25s ease-out 0s;-o-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;opacity:0;position: absolute;width: 100%;height: 100%;top:0;left: 0;background: rgba(0, 0, 0,0.5) url('/assets/view.png') no-repeat center center;}
+.with-hover span{-webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;-ms-transition: all 0.25s ease-out 0s;-o-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;opacity:0;position: absolute;width: 100%;height: 100%;top:0;left: 0;background: rgba(0, 0, 0, 0.9)}
 .with-hover span:hover{opacity:0.9;}
+.with-hover span h1 {border-bottom: 2px solid white}
+.with-hover span.mask_hover .link{color:white; text-align: center; font-weight: bold;}
 
 /*===============================
 Hover standart style
@@ -352,7 +354,7 @@ Hover standart style
    ========================================================================== */ 
 .pagination{margin-left: 0px;}
 .pagination-large ul > li:first-child > a, .pagination-large ul > li:first-child > span, .pagination ul > li:last-child > a, .pagination ul > li:last-child > span{-webkit-border-radius: 0;border-radius: 0;-moz-border-radius: 0;}
-.pagination-large a{color: #707070;}
+.pagination-large a{color: #000;}
 .pagination-large .active a:hover{background: transparent !important;}
 .pagination-large a:hover{background: #5C5C5C !important;color: white;}
 
@@ -430,7 +432,7 @@ Footer Css
 #footer-top{padding: 30px 0;position: relative}
 #footer-wrapper .chunky a{margin-left: 0 !important;}
 #footer-top .list-link li{background: url('/assets/right-arrow.png') no-repeat 0px 3px;padding-left: 15px;}
-#footer-top h4{border-bottom: 1px solid #707070 ;padding-bottom: 10px;padding-top: 10px; color: white;}
+#footer-top h4{border-bottom: 1px solid #000 ;padding-bottom: 10px;padding-top: 10px; color: white;}
 #footer-top a{color: #C2C2C2;}
 #footer-twit{border-top:1px solid #141414;padding: 10px 0;background: #3D3D3D ;min-height: 40px;}
 #footer-twit .qoute{position: relative;top: -7px;margin:0 5px; }

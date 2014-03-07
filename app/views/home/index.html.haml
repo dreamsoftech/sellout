@@ -1,6 +1,7 @@
 #content
   .panel.googleMaparea
     #googleMap
+    = render template: "home/map.js.erb"
     .map-with-agent.visible-desktop
       %h3 Easy to search concerts around you.
       %img{alt: "ceo", src: "/assets/agents/n5.png"}
@@ -32,21 +33,14 @@
                 - @events.each_with_index do |event, i|
                   .item
                     %a.with-hover{href: "events/#{event.artists[0].name.gsub(/\s+/, "")}"}
-                      = image_tag artist_image_url(event), class: "full"
+                      %img.full{src: "#{artist_image_url(event)}"}
                       %span.mask_hover
-                    %h4 #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
-                    .preview-properties
-                      .box-detail
-                        %p.text-center.short-detail
-                          - event.artists.each do |artist|
-                            %span.label
-                              %i.icon-user
-                              = artist.name
-                          
-                          %span.price
-                        .clearfix
-                          %a.btn-proper.btn.btn-small.pull-left{href: "#"} See Detail
-                          %a.btn-proper.btn.btn-small.pull-right{href: "#"} Add Ticket
+                        %br
+                        %h1.link GET TICKET
+                        %h4.link #{event.datetime}
+
+                    %p
+                      #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
 
             / End Grid Featured
           / Start New List
@@ -125,4 +119,3 @@
                         %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
                       .clearfix
               / End List Our AGents
-= render template: "home/map.js.erb"

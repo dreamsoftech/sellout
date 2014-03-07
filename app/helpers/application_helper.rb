@@ -19,4 +19,12 @@ module ApplicationHelper
     artist.image_url unless artist.nil?
   end
 
+  def render_artists_with_carousel(event)
+    artists = event.artists
+    content_tag(:li, nil, :class => 'item') do
+      artists.collect { |x|
+        image_tag x.image_url, class: "full"
+      }
+    end
+  end
 end
