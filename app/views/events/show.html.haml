@@ -19,39 +19,36 @@
             %span.main-circle-icon
               %i.icon-building
             #{@artist.name}'s Upcoming events
-          %table.table.table-hover
+          %table#event-list.table.table-hover
             %thead
               %tr
                 %th Title
-                %th Description
-                %th Venue
+                / %th Description
+                %th Location
                 %th Date
                 %th Artists
-                %th Ticket Status
+                %th
             %tbody
               - @artist.events.each do |event|
                 %tr
                   %td=event.title
-                  %td=event.description
+                  / %td=event.description
                   %td #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
                   %td=event.datetime
                   %td
                     - event.artists.each do |artist|
-                      #{artist.name}, 
-                  %td=event.ticket_status
-            
+                      %p
+                        %img.img-tiny{src: artist.image_url}
+                        #{artist.name}
+                  %td
+                    - if event.ticket_status == "unavailable"
+                      Unavailable
+                    - else
+                      = link_to "GET TICKET", event.ticketd_url, class: "btn btn-default"
+
             / END DETAIL
       .span3
         .panel
-          / MAP LOCATION
-          %h3.main-heading.bottom-line.line-before
-            %span.main-circle-icon
-              %i.icon-map-marker
-            Location
-          .bottom-line.line-before
-            %iframe#map-location{frameborder: "0", height: "250", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?f=q&source=s_q&hl=id&geocode=&q=arvada&aq=&sll=39.777936,-105.074272&sspn=0.149605,0.338173&ie=UTF8&hq=&hnear=Arvada,+Jefferson,+Colorado&ll=39.802764,-105.087484&spn=0.299124,0.676346&t=m&z=11&output=embed", width: "100%"}
-          / END MAP LOCATION
-          / Detail Agent
           %h3.main-heading.bottom-line.line-before
             %span.main-circle-icon
               %i.icon-user

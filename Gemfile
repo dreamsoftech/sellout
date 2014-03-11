@@ -21,6 +21,7 @@ gem 'rest_client'
 gem 'bandsintown', '0.0.0', :github => 'reedkevin88/bandsintown'
 gem 'nokogiri'
 gem 'geocoder', "~> 1.1.8"
+gem 'angular-rails'
 
 group :development do
   gem 'better_errors'

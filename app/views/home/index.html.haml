@@ -4,20 +4,9 @@
     = render template: "home/map.js.erb"
     .map-with-agent.visible-desktop
       %h3 Easy to search concerts around you.
-      %img{alt: "ceo", src: "/assets/agents/n5.png"}
+      / %img{alt: "ceo", src: "/assets/agents/n5.png"}
   / News Carousel
-  .news-carousel-wrapper
-    %dl#news-carousel.news-carousel-style
-      %dt
-        %a{href: "#"} News Link Here
-      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
-      %dt
-        %a{href: "#"} Promo Link Here
-      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
-      %dt
-        %a{href: "#"} Another Link Here
-      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
-  / End News Carousel
+  = render "news"
   .container
     .row-fluid
       .span9
@@ -32,12 +21,17 @@
               .grid-item.grid-style-properties
                 - @events.each_with_index do |event, i|
                   .item
-                    %a.with-hover{href: "events/#{event.artists[0].name.gsub(/\s+/, "")}"}
+                    %a.with-hover{href: "events/#{event.artists[0].name.gsub(/\s+/, '')}"}
+                    
                       %img.full{src: "#{artist_image_url(event)}"}
                       %span.mask_hover
                         %br
                         %h1.link GET TICKET
                         %h4.link #{event.datetime}
+                        %ul.inline
+                          - event.artists.each do |artist|
+                            %li
+                              %img.img-small{src: "#{artist.image_url}"}
 
                     %p
                       #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
@@ -68,13 +62,14 @@
                     Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
                   %a.btn-proper.btn.btn-small{href: "#"} Read More
               / End News List
-      .span3
+      .span3(ng-controller="HomeController")
         .panel
           / Start Form Search Properties
           %h3.main-heading.bottom-line.line-before
             %span.main-circle-icon
               %i.icon-search
             Find Events
+            %input.form-control{"ng-model" => "asyncSelected", placeholder: "Locations loaded via $http", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations"}
           %form.bottom-line.line-before{action: "/", method: "get"}
             %label Location
             %input.input-block-level{name: "location", placeholder: "Type Your Location", required: "", type: "text", value: "#{params[:location]}"}

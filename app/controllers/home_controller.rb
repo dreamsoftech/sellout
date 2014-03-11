@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 		if Rails.env.development?
 			params[:location] = "Boston, MA" if params[:location].nil?
 		else
-			params[:location] = request.location.try(:address) || "Boston, MA" if params[:location].nil?
+			params[:location] = request.location.try(:address) || "Charlestown, SC" if params[:location].nil?
 		end
 
 		if params[:start_date].nil? || params[:end_date].nil?
@@ -21,6 +21,19 @@ class HomeController < ApplicationController
 			  :start_date => start_date,
 			  :end_date => end_date
 			})
+		end
+
+	end
+
+	def venues
+		begin
+			@venues = Bandsintown::Venue.search({
+			  :query => "all",
+			  :location => "Boston, MA" || request.location.try(:address)
+			})
+		rescue Exception => e
+			@venues = []
+			flash[:error] = e.message
 		end
 	end
 end

@@ -8,8 +8,9 @@
     %script{:src => "http://maps.googleapis.com/maps/api/js?sensor=false" }
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
+  %body(ng-app="selloutApp")
     / Start Wrapper
     #wrapper
       = render "layouts/navigation"
+      = render "layouts/messages"
       = yield

@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 		@artist = Bandsintown::Artist.get({
 		  :name => params[:id]
 		})
+
 	end
 
 	def new
