@@ -2,7 +2,8 @@
   .pull-left
     %span
       Concerts within
-    %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations"}
+    %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations", "typeahead-on-select"=>"getEvents()", "onclick"=>"this.select()"}
+
     / %input.input-small.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
     / %input.input-small.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
 
@@ -15,7 +16,6 @@
     /     %label.checkbox
     /       %input{type: "checkbox"}
     /         Sale
-    %a.btn{"ng-click" => "getEvents()"} Search
   .pull-right
     .btn-group
       %a.btn.btn-large{href: "/", class: home_tab_class('index')} Upcomming
