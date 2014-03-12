@@ -70,12 +70,17 @@
   }
 }
 
-.schedule {
+.events-list {
   .clearfix {
     padding: 15px;
     background: white;
     border-bottom: 1px solid #ccc;
   }
   border: 1px solid #ccc;
-  
+
+}
+
+.loading {
+  position: relative;
+  z-index: 100;
 }

@@ -7,23 +7,24 @@
         .panel.right-line
           .featured-grid.right-space
             .box-white
+              .loading.text-center(ng-show="events.length == 0 || loading == true")
+                %img{src: "/assets/ajax-loader.gif"}
               .grid-item.grid-style-properties
-                - @events.each_with_index do |event, i|
-                  .item
-                    %a.with-hover{href: "events/#{event.artists[0].name.gsub(/\s+/, '')}"}
-                    
-                      %img.full{src: "#{artist_image_url(event)}"}
-                      %span.mask_hover
-                        %br
-                        %h1.link GET TICKET
-                        %h4.link #{event.datetime}
-                        %ul.inline
-                          - event.artists.each do |artist|
-                            %li
-                              %img.img-small{src: "#{artist.image_url}"}
+                .item{"ng-repeat" => "event in events"}
+                  %a.with-hover
+                    / {href: "events/#{event.artists[0].name.gsub(/\s+/, '')}"}
+                    %img.full{src: "{{artistImageUrl(event)}}"}
+                    %span.mask_hover
+                      %br
+                      %h1.link DETAIL INFO
+                      %h4.link {{event.datetime}}
+                      %ul.inline
+                        / - event.artists.each do |artist|
+                        /   %li
+                        /     %img.img-small{src: "#{artist.image_url}"}
 
-                    %p
-                      #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
+                  %p
+                    {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
 
             / End Grid Featured
           / Start New List

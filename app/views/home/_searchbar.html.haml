@@ -1,22 +1,21 @@
 #search-panel.row-fluid
   .pull-left
-    %form.form-inline{action: "/", method: "get"}
-      %span
-        Concerts within
-      %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations"}
-      / %input.input-small.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
-      / %input.input-small.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
+    %span
+      Concerts within
+    %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations"}
+    / %input.input-small.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
+    / %input.input-small.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
 
-      / .control-group-form
-      /   .control-group.half.pull-left
-      /     %label.checkbox
-      /       %input{type: "checkbox"}
-      /         Recommended
-      /   .control-group.half.text-left.pull-right
-      /     %label.checkbox
-      /       %input{type: "checkbox"}
-      /         Sale
-      %button.btn{type: "submit"} Search
+    / .control-group-form
+    /   .control-group.half.pull-left
+    /     %label.checkbox
+    /       %input{type: "checkbox"}
+    /         Recommended
+    /   .control-group.half.text-left.pull-right
+    /     %label.checkbox
+    /       %input{type: "checkbox"}
+    /         Sale
+    %a.btn{"ng-click" => "getEvents()"} Search
   .pull-right
     .btn-group
       %a.btn.btn-large{href: "/", class: home_tab_class('index')} Upcomming

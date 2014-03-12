@@ -1,4 +1,4 @@
-#content.schedule
+#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents();')
   = render "banner"
   .container
     = render "searchbar"
@@ -6,7 +6,7 @@
       %h3
         {{dt | date:'fullDate' }}
     .row-fluid
-      .span8
+      .span8.events-list
         - @events.each_with_index do |event, i|
           .clearfix.border-1
             .span3
@@ -20,8 +20,8 @@
                 %b Artists: 
                 - event.artists.each do |artist|
                   #{artist.name}, 
-              %h5
-                %b Ticket Price: 
+              - if event.ticket_status == "available"
+                %a.btn.btn-medium.btn-danger{src: "#{event.ticket_url}"} GET TICKET
       .span4.panel{style: "display:inline-block; min-height:290px;"}
         .well{"ng-model" => "dt"}
           %datepicker{min: "minDate", "show-weeks" => "false"}

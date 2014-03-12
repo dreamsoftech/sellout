@@ -1,4 +1,4 @@
-#content
+#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents();')
   = render "banner"
   .container
     = render "searchbar"
