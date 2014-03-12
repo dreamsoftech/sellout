@@ -4,3 +4,4 @@
 
 $ ->
 	$(".datepicker").datepicker()
+	$("#banner").carousel()

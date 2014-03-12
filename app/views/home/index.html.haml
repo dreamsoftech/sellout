@@ -1,21 +1,27 @@
 #content
-  .panel.googleMaparea
-    #googleMap
-    = render template: "home/map.js.erb"
+  .panel.bannerarea
+    #banner.carousel.slide.carousel-fade
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#banner"}
+        %li{"data-slide-to" => "1", "data-target" => "#banner"}
+        %li{"data-slide-to" => "2", "data-target" => "#banner"}
+      / Carousel items
+      .carousel-inner
+        - 4.times do |i|
+          .item
+            %img{src: "/assets/banner/banner#{i+1}.jpg", style: "width: 100%;"}
     .map-with-agent.visible-desktop
-      %h3 Easy to search concerts around you.
-      / %img{alt: "ceo", src: "/assets/agents/n5.png"}
   / News Carousel
   = render "news"
   .container
     .row-fluid
+      %h2.main-heading.bottom-line
+        %span.main-circle-icon
+          %i.icon-building
+        Concerts Around you
+    .row-fluid
       .span9
         .panel.right-line
-          / Start Grid Featured
-          %h2.main-heading.bottom-line
-            %span.main-circle-icon
-              %i.icon-building
-            Concerts Around you
           .featured-grid.right-space
             .box-white
               .grid-item.grid-style-properties
@@ -69,20 +75,19 @@
             %span.main-circle-icon
               %i.icon-search
             Find Events
-            %input.form-control{"ng-model" => "asyncSelected", placeholder: "Locations loaded via $http", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations"}
-          %form.bottom-line.line-before{action: "/", method: "get"}
+          .bottom-line.line-before
             %label Location
-            %input.input-block-level{name: "location", placeholder: "Type Your Location", required: "", type: "text", value: "#{params[:location]}"}
+            %input.input-block-level{"ng-model" => "location", placeholder: "Input location", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations"}
             .control-group-form
               .control-group.half.pull-left
                 %label.control-label Start Date
                 .controls
-                  %input.input-block-level.datepicker{name: "start_date", placeholder: "Start Date", required: "", type: "text", value: "#{params[:start_date]}"}
+                  %input.input-block-level.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
   
               .control-group.half.text-right.pull-right
                 %label.control-label End Date
                 .controls
-                  %input.input-block-level.datepicker{name: "end_date", placeholder: "End Date", required: "", type: "text", value: "#{params[:end_date]}"}
+                  %input.input-block-level.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
                 .clearfix
               .control-group-form
                 .control-group.half.pull-left
@@ -93,24 +98,24 @@
                   %label.checkbox
                     %input{type: "checkbox"}
                       Sale
-              %button.input-block-level.btn-proper.btn.btn-large{type: "submit"} Search
+            %button.input-block-level.btn-proper.btn.btn-largeSearch{"ng-click" => "getEvents()"} Search
 
-              / Start List Our Agent
-              %h3.bottom-line.line-before.main-heading
-                %span.main-circle-icon
-                  %i.icon-list
-                Artists
-              .list-items
-                - @events.each do |event|
-                  - event.artists.each do |artist|
-                    .item
-                      .img-preview
-                        %img{alt: "#{artist.name}", src: artist.image_url}
-                      .item-desk
-                        .title
-                          %h3
-                            %a{href: "#"}= artist.name
-                        .location #{event.venue.name}
-                        %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
-                      .clearfix
-              / End List Our AGents
+            / Start List Our Agent
+            %h3.bottom-line.line-before.main-heading
+              %span.main-circle-icon
+                %i.icon-list
+              Artists
+            .list-items
+              / - @events.each do |event|
+              /   - event.artists.each do |artist|
+              /     .item
+              /       .img-preview
+              /         %img{alt: "#{artist.name}", src: artist.image_url}
+              /       .item-desk
+              /         .title
+              /           %h3
+              /             %a{href: "#"}= artist.name
+              /         .location #{event.venue.name}
+              /         %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
+              /       .clearfix
+            / End List Our AGents
