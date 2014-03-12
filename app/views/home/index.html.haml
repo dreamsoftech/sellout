@@ -4,8 +4,8 @@
     = render "searchbar"
     .row-fluid
       .span9
-        .panel.right-line
-          .featured-grid.right-space
+        .panel
+          .featured-grid
             .box-white
               .loading.text-center(ng-show="events.length == 0 || loading == true")
                 %img{src: "/assets/ajax-loader.gif"}
@@ -52,7 +52,7 @@
                   %a.btn-proper.btn.btn-small{href: "#"} Read More
               / End News List
       .span3
-        .panel
+        .box-white
           / Start List Our Agent
           %h4
             News and Advertising area
