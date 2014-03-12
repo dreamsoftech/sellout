@@ -11,8 +11,7 @@
                 %img{src: "/assets/ajax-loader.gif"}
               .grid-item.grid-style-properties
                 .item{"ng-repeat" => "event in events"}
-                  %a.with-hover
-                    / {href: "events/#{event.artists[0].name.gsub(/\s+/, '')}"}
+                  %a.with-hover{href: "events/{{event.artists[0].name.replace(' ', '')}}"}
                     %img.full{src: "{{artistImageUrl(event)}}"}
                     %span.mask_hover
                       %br
