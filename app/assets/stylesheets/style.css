@@ -495,7 +495,7 @@ form .half{width: 47%;}
 form input[type="text"],select, label, form input[type="email"], form input[type="number"], form input[type="email"], form input[type="password"], form input[type="tel"], textarea{font-size: 12px;-moz-border-radius: 0;-webkit-border-radius: 0;border-radius: 0;}
 form label{font-weight: bold;}
 .btn.font-caly{padding-top: 10px;}
-select{float: left;color: #333333;border-radius: 0;line-height: 20px;width: 234px;border: 1px solid #ccc;border-radius: 0;appearance: none;-webkit-appearance: none;-moz-appearance:none;overflow: hidden;background: #fff url(/assets/formelements-select.png) right center no-repeat;}
+select{color: white;border-radius: 0;line-height: 20px;width: auto; border: none; font-size: 18px; border-bottom:1px dotted #999;-webkit-appearance: none;-moz-appearance:none;overflow: hidden;background: #666;}
 select:focus{outline: none}
 /* ==========================================================================
    for device table or smartphone with less than 767 pixel

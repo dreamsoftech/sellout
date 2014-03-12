@@ -6,6 +6,8 @@ selloutApp.controller('HomeController', function($scope, $http) {
 	$scope.location = '';
 	$scope.startDate = '';
 	$scope.endDate = '';
+	$scope.distance = 2;
+
 	$scope.events = [];
 	$scope.today = function() {
     $scope.dt = new Date();
@@ -34,6 +36,7 @@ selloutApp.controller('HomeController', function($scope, $http) {
   	$scope.loading = true;
   	$.getJSON("http://api.bandsintown.com/events/search.json?callback=?&", {
 			location: $scope.location,
+			radius: $scope.distance,
 			app_id: "sellout_platform298982873",	
   	}).done(function(result) {
 		  $scope.loading = false;
