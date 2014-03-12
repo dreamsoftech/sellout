@@ -1,0 +1,27 @@
+#content.schedule
+  = render "banner"
+  .container
+    = render "searchbar"
+    .row-fluid
+      %h3
+        {{dt | date:'fullDate' }}
+    .row-fluid
+      .span8
+        - @events.each_with_index do |event, i|
+          .clearfix.border-1
+            .span3
+              %h4
+                = get_time event.datetime
+            .span9
+              %h5
+                %b Location: 
+                #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
+              %h5
+                %b Artists: 
+                - event.artists.each do |artist|
+                  #{artist.name}, 
+              %h5
+                %b Ticket Price: 
+      .span4.panel{style: "display:inline-block; min-height:290px;"}
+        .well{"ng-model" => "dt"}
+          %datepicker{min: "minDate", "show-weeks" => "false"}

@@ -33,3 +33,49 @@
     z-index: 2;
   }
 }
+
+.carousel {
+  margin: 0px;
+}
+
+#search-panel {
+  background: #666;
+  box-shadow: 0px 0px 2px 2px #999;
+  margin-top: -40px;
+  position: relative;
+  z-index: 10;
+  color: white;
+
+  input[type="text"],
+  input[type="text"]:hover {
+    border: none;
+    border-bottom: 1px dotted #999;
+    box-shadow: none;
+    color: #fff;
+    font-size: 18px;
+    background: transparent;
+    width: auto;
+  }
+
+  .pull-left {
+    margin: 25px 15px 15px;
+
+    span {
+      font-size: 22px;
+    }
+  }
+
+  .pull-right {
+    margin: 15px;
+  }
+}
+
+.schedule {
+  .clearfix {
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #ccc;
+  }
+  border: 1px solid #ccc;
+  
+}

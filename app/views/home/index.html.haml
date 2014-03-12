@@ -1,24 +1,7 @@
 #content
-  .panel.bannerarea
-    #banner.carousel.slide.carousel-fade
-      %ol.carousel-indicators
-        %li.active{"data-slide-to" => "0", "data-target" => "#banner"}
-        %li{"data-slide-to" => "1", "data-target" => "#banner"}
-        %li{"data-slide-to" => "2", "data-target" => "#banner"}
-      / Carousel items
-      .carousel-inner
-        - 4.times do |i|
-          .item
-            %img{src: "/assets/banner/banner#{i+1}.jpg", style: "width: 100%;"}
-    .map-with-agent.visible-desktop
-  / News Carousel
-  = render "news"
+  = render "banner"
   .container
-    .row-fluid
-      %h2.main-heading.bottom-line
-        %span.main-circle-icon
-          %i.icon-building
-        Concerts Around you
+    = render "searchbar"
     .row-fluid
       .span9
         .panel.right-line
@@ -68,54 +51,10 @@
                     Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
                   %a.btn-proper.btn.btn-small{href: "#"} Read More
               / End News List
-      .span3(ng-controller="HomeController")
+      .span3
         .panel
-          / Start Form Search Properties
-          %h3.main-heading.bottom-line.line-before
-            %span.main-circle-icon
-              %i.icon-search
-            Find Events
-          .bottom-line.line-before
-            %label Location
-            %input.input-block-level{"ng-model" => "location", placeholder: "Input location", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations"}
-            .control-group-form
-              .control-group.half.pull-left
-                %label.control-label Start Date
-                .controls
-                  %input.input-block-level.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
-  
-              .control-group.half.text-right.pull-right
-                %label.control-label End Date
-                .controls
-                  %input.input-block-level.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
-                .clearfix
-              .control-group-form
-                .control-group.half.pull-left
-                  %label.checkbox
-                    %input{type: "checkbox"}
-                      Recommended
-                .control-group.half.text-left.pull-right
-                  %label.checkbox
-                    %input{type: "checkbox"}
-                      Sale
-            %button.input-block-level.btn-proper.btn.btn-largeSearch{"ng-click" => "getEvents()"} Search
-
-            / Start List Our Agent
-            %h3.bottom-line.line-before.main-heading
-              %span.main-circle-icon
-                %i.icon-list
-              Artists
-            .list-items
-              / - @events.each do |event|
-              /   - event.artists.each do |artist|
-              /     .item
-              /       .img-preview
-              /         %img{alt: "#{artist.name}", src: artist.image_url}
-              /       .item-desk
-              /         .title
-              /           %h3
-              /             %a{href: "#"}= artist.name
-              /         .location #{event.venue.name}
-              /         %a.btn-proper.btn-mini.btn{href: "#"} Profile Page
-              /       .clearfix
-            / End List Our AGents
+          / Start List Our Agent
+          %h4
+            News and Advertising area
+          .list-items
+            %img{src: "/assets/ads.jpg"}

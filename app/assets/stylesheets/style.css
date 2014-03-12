@@ -445,7 +445,6 @@ Global Css
 ============================================================================*/
 
 .right-space{margin-right: 30px}
-.panel{padding-bottom: 20px;}
 .panel-wide{padding: 0 20px; margin: 0;}
 .panel .box-panel{padding: 20px;}
 .main-heading {margin: 0 0 20px;padding: 20px 0;font-size: 24.5px;text-shadow: 0px 1px 2px rgba(255,255,255,0.5);}
@@ -484,7 +483,7 @@ Global Css
 /* ==========================================================================
   Form Styles
    ========================================================================== */ 
-form{margin-bottom: 0;padding-bottom: 30px;}
+form{margin-bottom: 0;}
 .form-proper{ background: #eee; padding: 20px;}
 form .half{width: 47%;}
 .form-proper{background: #eee; padding: 20px;}

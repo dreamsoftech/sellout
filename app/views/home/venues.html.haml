@@ -1,4 +1,7 @@
 #content
-  .panel.googleMaparea
-    #googleMap
-    = render template: "home/venue.js.erb"
+  = render "banner"
+  .container
+    = render "searchbar"
+    .panel.googleMaparea
+      #googleMap
+      = render template: "home/map.js.erb"

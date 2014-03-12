@@ -1,6 +1,5 @@
-var selloutApp = angular.module('selloutApp', ['ui.bootstrap']);
-selloutApp.config(['$httpProvider', function ($httpProvider) {
-     delete $httpProvider.defaults.headers.common['X-Requested-With']; //Fixes cross domain requests
+var selloutApp = angular.module('selloutApp', ['ui.bootstrap']).config(['$httpProvider', function ($httpProvider) {
+   delete $httpProvider.defaults.headers.common['X-Requested-With']; //Fixes cross domain requests
 }]);
 
 selloutApp.controller('HomeController', ['$scope', '$http', function($scope, $http) {
@@ -29,11 +28,14 @@ selloutApp.controller('HomeController', ['$scope', '$http', function($scope, $ht
   $scope.getEvents = function() {
   	return $http.get('http://api.bandsintown.com/events/search.json', {
   		params: {
-  			location: $scope.location
+  			location: $scope.location,
+  			app_id: "sellout_platform298982873"
+
   			// start_date: $scope.startDate,
   			// end_date: $scope.endDate
   		}
   	}).then(function(res){
+  		debugger;
       var events = [];
       angular.forEach(res.data.results, function(item){
         // addresses.push(item.formatted_address);
