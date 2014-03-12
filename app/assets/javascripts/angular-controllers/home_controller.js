@@ -6,6 +6,7 @@ selloutApp.controller('HomeController', ['$scope', '$http', function($scope, $ht
 	$scope.location = '';
 	$scope.startDate = '';
 	$scope.endDate = '';
+	$scope.events = [];
 
 	$scope.getLocation = function(val) {
 		if (val) {
@@ -26,21 +27,11 @@ selloutApp.controller('HomeController', ['$scope', '$http', function($scope, $ht
   };
 
   $scope.getEvents = function() {
-  	return $http.get('http://api.bandsintown.com/events/search.json', {
-  		params: {
-  			location: $scope.location,
-  			app_id: "sellout_platform298982873"
-
-  			// start_date: $scope.startDate,
-  			// end_date: $scope.endDate
-  		}
-  	}).then(function(res){
-  		debugger;
-      var events = [];
-      angular.forEach(res.data.results, function(item){
-        // addresses.push(item.formatted_address);
-      });
-      return events;
-    });
+  	$.getJSON("http://api.bandsintown.com/artists/weezer/events.json?callback=?&", {
+			location: $scope.location,
+			app_id: "sellout_platform298982873",	
+  	}).done(function(result) {
+		  $scope.events = result;
+		});
   };
 }])
