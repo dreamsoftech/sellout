@@ -1,4 +1,4 @@
-#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents();')
+#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents(false);')
   = render "banner"
   .container
     = render "searchbar"
@@ -7,21 +7,20 @@
         {{dt | date:'fullDate' }}
     .row-fluid
       .span8.events-list
-        - @events.each_with_index do |event, i|
-          .clearfix.border-1
-            .span3
-              %h4
-                = get_time event.datetime
-            .span9
-              %h5
-                %b Location: 
-                #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
-              %h5
-                %b Artists: 
-                - event.artists.each do |artist|
-                  #{artist.name}, 
-              - if event.ticket_status == "available"
-                %a.btn.btn-medium.btn-danger{src: "#{event.ticket_url}"} GET TICKET
+        .loading.text-center(ng-show="events.length == 0 || loading == true")
+          %img{src: "/assets/ajax-loader.gif"}
+        .clearfix.border-1(ng-repeat="event in events")
+          .span3
+            %h4
+              {{getTime(event.datetime)}}
+          .span9
+            %h5
+              %b Location: 
+              {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
+            %h5
+              %b Artists: 
+              {{getArtists(event)}}
+            %a.btn.btn-medium.btn-danger{"ng-href"=>"event.ticket_url", "ng-show"=>"ticketAvailable(event)"} GET TICKET
       .span4.panel{style: "display:inline-block; min-height:290px;"}
-        .well{"ng-model" => "dt"}
+        .well{"ng-model" => "dt", "ng-change"=>"getEvents()"}
           %datepicker{min: "minDate", "show-weeks" => "false"}

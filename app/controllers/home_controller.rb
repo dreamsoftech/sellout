@@ -32,12 +32,6 @@ class HomeController < ApplicationController
 				params[:location] = request.location.try(:address) || "Charlestown, SC, USA" if params[:location].nil?
 			end
 
-			@events = Bandsintown::Event.search({
-			  :location => params[:location], 
-			  :start_date => Time.now,
-			  :end_date => Time.now + 1.day
-			})
-
 		rescue Exception => e
 			redirect_to :back, alert: e.message
 		end

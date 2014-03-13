@@ -2,7 +2,7 @@ var selloutApp = angular.module('selloutApp', ['ui.bootstrap']).config(['$httpPr
    delete $httpProvider.defaults.headers.common['X-Requested-With']; //Fixes cross domain requests
 }]);
 
-selloutApp.controller('HomeController', function($scope, $http) {
+selloutApp.controller('HomeController', function($scope, $http, $filter) {
 	$scope.location = '';
 	$scope.startDate = '';
 	$scope.endDate = '';
@@ -32,12 +32,13 @@ selloutApp.controller('HomeController', function($scope, $http) {
 	  }
   };
 
-  $scope.getEvents = function() {
+  $scope.getEvents = function(refresh) {
   	$scope.loading = true;
   	$.getJSON("http://api.bandsintown.com/events/search.json?callback=?&", {
 			location: $scope.location,
 			radius: $scope.distance,
-			app_id: "sellout_platform298982873",	
+			date: $filter('date')($scope.dt, "yyyy-MM-dd"),
+			app_id: "sellout_platform298982873"
   	}).done(function(result) {
 		  $scope.loading = false;
   		if (result.errors){
@@ -46,7 +47,8 @@ selloutApp.controller('HomeController', function($scope, $http) {
 		  } else {
 		  	$scope.events = result;
 		  	$scope.$apply();
-		  	init_grid();
+		  	if (refresh)
+		  		init_grid();
 		  }
 		  
 		}).fail(function(result) {
@@ -55,7 +57,28 @@ selloutApp.controller('HomeController', function($scope, $http) {
 		});
   };
 
+  $scope.getArtists = function(event) {
+  	var artist_names = [];
+  	for (artist in event.artists) {
+  		artist_names.push(artist.name);
+  	}
+  	return artist_names.join(", ")
+  }
+
+  $scope.ticketAvailable = function(event) {
+  	return event.ticket_status == 'available'
+  }
+
   $scope.artistImageUrl = function(event) {
-  	return event.artists[0].url + "/photo/medium.jpg";
+		return event.artists[0].url + "/photo/medium.jpg";
+  }
+
+  $scope.removeWhitespace = function(str) {
+  	return str.replace(/ /g, '');
+  }
+
+  $scope.getTime = function(datetime) {
+  	date = new Date(Date.parse(datetime))
+  	return date.toLocaleTimeString();
   }
 })

@@ -1,29 +1,26 @@
-#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents();')
+#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents(true);')
   = render "banner"
   .container
     = render "searchbar"
     .row-fluid
-      .span9
-        .panel
-          .featured-grid
-            .box-white
-              .loading.text-center(ng-show="events.length == 0 || loading == true")
-                %img{src: "/assets/ajax-loader.gif"}
-              .grid-item.grid-style-properties
-                .item{"ng-repeat" => "event in events"}
-                  %a.with-hover{href: "events/{{event.artists[0].name.replace(' ', '')}}"}
-                    %img.full{src: "{{artistImageUrl(event)}}"}
-                    %span.mask_hover
-                      %br
-                      %h1.link DETAIL INFO
-                      %h4.link {{event.datetime}}
-                      %ul.inline
-                        / - event.artists.each do |artist|
-                        /   %li
-                        /     %img.img-small{src: "#{artist.image_url}"}
+      .span9.events-list
+        .featured-grid
+          .box-white
+            .grid-item.grid-style-properties
+              .item{"ng-repeat" => "event in events"}
+                %a.with-hover{href: "events/{{removeWhitespace(event.artists[0].name)}}"}
+                  %img.full{"ng-src"=>"{{artistImageUrl(event)}}"}
+                  %span.mask_hover
+                    %br
+                    %h1.link DETAIL INFO
+                    %h4.link {{event.datetime}}
+                    %ul.inline
+                      / - event.artists.each do |artist|
+                      /   %li
+                      /     %img.img-small{src: "#{artist.image_url}"}
 
-                  %p
-                    {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
+                %p
+                  {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
 
             / End Grid Featured
           / Start New List
