@@ -1,9 +1,11 @@
-#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents(true);')
+#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; refreshGrid=true; getEvents();')
   = render "banner"
   .container
     = render "searchbar"
     .row-fluid
       .span9.events-list
+        .loading.text-center(ng-show="events.length == 0 || loading == true")
+          %img{src: "/assets/ajax-loader.gif"}
         .featured-grid
           .box-white
             .grid-item.grid-style-properties

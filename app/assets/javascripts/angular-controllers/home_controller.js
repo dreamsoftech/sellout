@@ -7,6 +7,7 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 	$scope.startDate = '';
 	$scope.endDate = '';
 	$scope.distance = 2;
+	$scope.refreshGrid = false;
 
 	$scope.events = [];
 	$scope.today = function() {
@@ -45,9 +46,10 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
   			$scope.errorMsg = result.errors;
   			$scope.$apply();
 		  } else {
+		  	$(".galcolumn").remove();
 		  	$scope.events = result;
 		  	$scope.$apply();
-		  	if (refresh)
+		  	if ($scope.refreshGrid)
 		  		init_grid();
 		  }
 		  
@@ -59,9 +61,10 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 
   $scope.getArtists = function(event) {
   	var artist_names = [];
-  	for (artist in event.artists) {
+  	event.artists.forEach(function(artist){
   		artist_names.push(artist.name);
-  	}
+  	})
+
   	return artist_names.join(", ")
   }
 
