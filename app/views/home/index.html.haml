@@ -4,7 +4,7 @@
     = render "searchbar"
     .row-fluid
       .span9.events-list
-        .loading.text-center(ng-show="events.length == 0 || loading == true")
+        .loading.text-center(ng-show="loading == true")
           %img{src: "/assets/ajax-loader.gif"}
         .featured-grid
           .box-white
