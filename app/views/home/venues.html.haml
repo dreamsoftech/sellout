@@ -1,7 +1,0 @@
-#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents();')
-  = render "banner"
-  .container
-    = render "searchbar"
-    .panel.googleMaparea
-      #googleMap
-      = render template: "home/map.js.erb"

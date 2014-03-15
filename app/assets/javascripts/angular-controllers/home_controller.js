@@ -1,4 +1,4 @@
-var selloutApp = angular.module('selloutApp', ['ui.bootstrap', 'ngRoute'])
+var selloutApp = angular.module('selloutApp', ['ui.bootstrap', 'google-maps', 'ngRoute'])
 .config(function ($httpProvider) {
    delete $httpProvider.defaults.headers.common['X-Requested-With']; //Fixes cross domain requests
 });
@@ -24,13 +24,34 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 	$scope.view = 'list';
 	$scope.distance = 2;
 	$scope.events = [];
+	$scope.map = {
+    options:{
+      scaleControl: false,
+      scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+      }
+    },
+    center: {
+    	latitude: 45,
+      longitude: -73
+    },
+    zoom: 12,
+    dragging: false,
+    bounds: {},
+    markers: [
+    ]
+	};
+
 	$scope.today = function() {
 	  $scope.dt = new Date();
   };
 
   $scope.today();
 
-	$scope.getLocation = function(val) {
+	$scope.getAddresses = function(val) {
 		if (val) {
 	    return $http.get('https://maps.googleapis.com/maps/api/geocode/json', {
 	      params: {
@@ -48,7 +69,25 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 	  }
   };
 
-  $scope.getEvents = function(refresh) {
+  $scope.getLocation = function() {
+    $http.get('https://maps.googleapis.com/maps/api/geocode/json', {
+      params: {
+      	// key: "AIzaSyAHWvq6qmw1cgJXhD2dlTQ7vGrBX6hbAAI",
+        address: $scope.location,
+        sensor: false
+      }
+    }).then(function(res){
+    	if (res.data.results.length > 0)
+    	{
+    		var location = res.data.results[0].geometry.location;
+    		$scope.map.center.latitude = location.lat;
+    		$scope.map.center.longitude = location.lng;
+    	}
+    });
+    $scope.getEvents();
+  };
+
+  $scope.getEvents = function() {
   	$scope.loading = true;
   	$.getJSON("http://api.bandsintown.com/events/search.json?callback=?&", {
 			location: $scope.location,

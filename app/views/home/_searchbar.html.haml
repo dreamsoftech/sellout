@@ -12,7 +12,7 @@
       %option{value: "30"} 30 miles
       %option{value: "40"} 40 miles
     %span of
-    %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getLocation($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations", "typeahead-on-select"=>"getEvents()", "onclick"=>"this.select()"}
+    %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getAddresses($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations", "typeahead-on-select"=>"getLocation()", "onclick"=>"this.select()"}
 
     / %input.input-small.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
     / %input.input-small.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
@@ -28,6 +28,6 @@
     /         Sale
   .pull-right
     .btn-group
-      %a.btn.btn-large{"ng-click"=>"view='list'", "ng-class"=>"{active: view=='list'}"} Upcomming
-      %a.btn.btn-large{"ng-click"=>"view='calendar'", "ng-class"=>"{active: view=='calendar'}"} Calendar
-      %a.btn.btn-large{"ng-click"=>"view='venue'", "ng-class"=>"{active: view=='venue'}"} Venues
+      = change_view('list', 'Upcomming')
+      = change_view('calendar', 'Calendar')
+      = change_view('venue', 'Venues')

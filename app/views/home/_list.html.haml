@@ -5,7 +5,7 @@
     .featured-grid
       .box-white
         .grid-item.grid-style-properties
-          .item{"ng-repeat" => "event in events"}
+          .item{"ng-repeat" => "event in events", "ng-show"=>"loading != true"}
             %a.with-hover{href: "events/{{removeWhitespace(event.artists[0].name)}}"}
               %img.full{"ng-src"=>"{{artistImageUrl(event)}}"}
               %span.mask_hover

@@ -1,3 +1,3 @@
 .panel.googleMaparea
-  #googleMap
-  = render template: "home/map.js.erb"
+  .google-map{center: "map.center", control: "map.control", draggable: "true",options: "map.options", pan: "true", zoom: "map.zoom"}
+    / %layer{show: "true", type: "TrafficLayer"}

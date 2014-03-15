@@ -17,7 +17,7 @@
 //= require jquery.grid-a-licious
 //= require angular
 //= require angular-route
+//= require_directory ./common
 //= require_directory ./plugin
-//= require gmap3
 //= require proper
 //= require_tree .
