@@ -1,0 +1,22 @@
+.row-fluid
+  %h3#concert_date
+    {{$parent.dt | date:'fullDate' }}
+.row-fluid
+  .span8.events-list
+    .loading.text-center(ng-show="loading == true")
+      %img{src: "/assets/ajax-loader.gif"}
+    .clearfix.border-1(ng-repeat="event in events")
+      .span3
+        %h4
+          {{getTime(event.datetime)}}
+      .span9
+        %h5
+          %b Location: 
+          {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
+        %h5
+          %b Artists: 
+          {{getArtists(event)}}
+        %a.btn.btn-medium.btn-danger{"ng-href"=>"event.ticket_url", "ng-show"=>"ticketAvailable(event)"} GET TICKET
+  .span4.panel{style: "display:inline-block; min-height:290px;"}
+    .well
+      %datepicker{min: "minDate", "show-weeks" => "false", "ng-model" => "$parent.dt", "ng-change"=>"getEvents()"}

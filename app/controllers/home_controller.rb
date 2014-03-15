@@ -24,16 +24,16 @@ class HomeController < ApplicationController
 		end
 	end
 
-	def calendar
-		begin
-			if Rails.env.development?
-				params[:location] = "Boston, MA" if params[:location].nil?
-			else
-				params[:location] = request.location.try(:address) || "Charlestown, SC, USA" if params[:location].nil?
-			end
+	# def calendar
+	# 	begin
+	# 		if Rails.env.development?
+	# 			params[:location] = "Boston, MA" if params[:location].nil?
+	# 		else
+	# 			params[:location] = request.location.try(:address) || "Charlestown, SC, USA" if params[:location].nil?
+	# 		end
 
-		rescue Exception => e
-			redirect_to :back, alert: e.message
-		end
-	end
+	# 	rescue Exception => e
+	# 		redirect_to :back, alert: e.message
+	# 	end
+	# end
 end

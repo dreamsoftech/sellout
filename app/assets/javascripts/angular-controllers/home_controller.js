@@ -1,18 +1,33 @@
-var selloutApp = angular.module('selloutApp', ['ui.bootstrap']).config(['$httpProvider', function ($httpProvider) {
+var selloutApp = angular.module('selloutApp', ['ui.bootstrap', 'ngRoute'])
+.config(function ($httpProvider) {
    delete $httpProvider.defaults.headers.common['X-Requested-With']; //Fixes cross domain requests
-}]);
+});
+
+// selloutApp.config([
+//   '$routeProvider',
+
+//   function($routeProvider) {
+// 		$routeProvider
+// 		.when('/', {
+// 		  controller: 'HomeController',
+// 		  templateUrl: '/assets/angular-templates/event_list.html'
+// 		}).when('/calendar', {
+// 		  controller: 'HomeController',
+// 		  templateUrl: '/assets/angular-templates/event_calendar.html'
+// 		});
+// 	}
+// ]);
+
 
 selloutApp.controller('HomeController', function($scope, $http, $filter) {
 	$scope.location = '';
-	$scope.startDate = '';
-	$scope.endDate = '';
+	$scope.view = 'list';
 	$scope.distance = 2;
-	$scope.refreshGrid = false;
-
 	$scope.events = [];
 	$scope.today = function() {
-    $scope.dt = new Date();
+	  $scope.dt = new Date();
   };
+
   $scope.today();
 
 	$scope.getLocation = function(val) {
@@ -49,7 +64,7 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 		  	$(".galcolumn").remove();
 		  	$scope.events = result;
 		  	$scope.$apply();
-		  	if ($scope.refreshGrid)
+		  	if ($scope.view == 'list')
 		  		init_grid();
 		  }
 		  

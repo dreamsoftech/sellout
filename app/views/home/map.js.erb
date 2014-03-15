@@ -19,17 +19,7 @@ $("#googleMap").gmap3({
     marker:{
         // DATA LOCATION
         values:[
-        <% @events.each do |event| %>
-            {
-                latLng:[<%= event.venue.latitude %>, <%= event.venue.longitude %>], 
-                data:{
-                    img_preview: "<%= artist_image_url(event) %>", 
-                    properties_name: '<%= "#{event.venue.name}, #{event.venue.city}, #{event.venue.region}" %>',
-                    properties_desc:"Lorem Ipsum Go Green",
-                    properties_link:"#"
-                }
-            },
-        <% end %>            
+             
         ],
         events:{
             mouseover: function(marker, event, context){

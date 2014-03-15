@@ -28,7 +28,6 @@
     /         Sale
   .pull-right
     .btn-group
-      %a.btn.btn-large{href: "/", class: home_tab_class('index')} Upcomming
-      %a.btn.btn-large{href: "/calendar", class: home_tab_class('calendar')} Calendar
-      %a.btn.btn-large{href: "/venues", class: home_tab_class('venues')} Venues
-  
+      %a.btn.btn-large{"ng-click"=>"view='list'", "ng-class"=>"{active: view=='list'}"} Upcomming
+      %a.btn.btn-large{"ng-click"=>"view='calendar'", "ng-class"=>"{active: view=='calendar'}"} Calendar
+      %a.btn.btn-large{"ng-click"=>"view='venue'", "ng-class"=>"{active: view=='venue'}"} Venues

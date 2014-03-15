@@ -1,0 +1,55 @@
+.row-fluid
+  .span9.events-list
+    .loading.text-center(ng-show="loading == true")
+      %img{src: "/assets/ajax-loader.gif"}
+    .featured-grid
+      .box-white
+        .grid-item.grid-style-properties
+          .item{"ng-repeat" => "event in events"}
+            %a.with-hover{href: "events/{{removeWhitespace(event.artists[0].name)}}"}
+              %img.full{"ng-src"=>"{{artistImageUrl(event)}}"}
+              %span.mask_hover
+                %br
+                %h1.link DETAIL INFO
+                %h4.link {{event.datetime}}
+                %ul.inline
+                  / - event.artists.each do |artist|
+                  /   %li
+                  /     %img.img-small{src: "#{artist.image_url}"}
+
+            %p
+              {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
+
+        / End Grid Featured
+      / Start New List
+      %h2.main-heading.bottom-line.top-line
+        %span.main-circle-icon
+          %i.icon-book
+        News
+      .news.right-space
+        .media.box-white
+          %a.pull-left{href: "#"}
+            %img.media-object{alt: "images", src: "/assets/news/thum/n1.jpg"}
+          .media-body
+            %h4.media-heading Investor Club
+            %p
+              Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
+              Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
+            %a.btn-proper.btn.btn-small{href: "#"} Read More
+          .media.box-white
+            %a.pull-left{href: "#"}
+              %img.media-object{alt: "images", src: "http://placehold.it/150x90"}
+            .media-body
+              %h4.media-heading Investor Club
+              %p
+                Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
+                Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
+              %a.btn-proper.btn.btn-small{href: "#"} Read More
+          / End News List
+  .span3
+    .box-white
+      / Start List Our Agent
+      %h4
+        News and Advertising area
+      .list-items
+        %img{src: "/assets/ads.jpg"}
