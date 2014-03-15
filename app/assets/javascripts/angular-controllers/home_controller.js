@@ -41,8 +41,7 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
     zoom: 12,
     dragging: false,
     bounds: {},
-    markers: [
-    ]
+    markers: []
 	};
 
 	$scope.today = function() {
@@ -92,7 +91,7 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
   	$.getJSON("http://api.bandsintown.com/events/search.json?callback=?&", {
 			location: $scope.location,
 			radius: $scope.distance,
-			date: $filter('date')($scope.dt, "yyyy-MM-dd"),
+			date: $scope.view == 'calendar' ? $filter('date')($scope.dt, "yyyy-MM-dd") : "upcoming",
 			app_id: "sellout_platform298982873"
   	}).done(function(result) {
 		  $scope.loading = false;
@@ -102,11 +101,23 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 		  } else {
 		  	$(".galcolumn").remove();
 		  	$scope.events = result;
+
+		  	// Venues on google map
+		  	$scope.map.markers = [];
+		  	result.forEach(function(event){
+					$scope.map.markers.push({
+						latitude: event.venue.latitude,
+						longitude: event.venue.longitude,
+						image_url: $scope.artistImageUrl(event),
+						address: event.venue.name
+					});
+		  	})
+
 		  	$scope.$apply();
 		  	if ($scope.view == 'list')
 		  		init_grid();
 		  }
-		  
+
 		}).fail(function(result) {
 			$scope.loading = false;
 		  $scope.$apply();

@@ -1,3 +1,7 @@
 .panel.googleMaparea
   .google-map{center: "map.center", control: "map.control", draggable: "true",options: "map.options", pan: "true", zoom: "map.zoom"}
-    / %layer{show: "true", type: "TrafficLayer"}
+    %markers{click: "'onClicked'", coords: "'self'", icon: "'icon'", labelanchor: "22 0", labelclass: "marker-labels", labelcontent: "'title'", models: "map.markers"}
+      %windows{closeclick: "'closeClick'", "ng-cloak" => "", show: "'showWindow'"}
+        %h5{"ng-non-bindable" => ""}
+          %b {{address}}
+        %img{"ng-non-bindable" => "", "src"=>"{{image_url}}"}

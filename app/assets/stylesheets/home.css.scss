@@ -101,4 +101,7 @@
   display: block;     
 }
 
-.angular-google-map-container { height: 400px; width: 100%}
+.angular-google-map-container { height: 600px; width: 100%}
+.gm-style .gm-style-iw div {
+  overflow: hidden !important;
+}
