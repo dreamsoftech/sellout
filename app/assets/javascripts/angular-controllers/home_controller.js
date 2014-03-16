@@ -70,6 +70,24 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 	  }
   };
 
+  $scope.getDetail = function(lat, lng) {
+  	var map = new google.maps.Map($(".google-map"), {
+	    center: new google.maps.LatLng(lat, lng),
+	    zoom: 13
+	  });
+
+	  var request = {
+	    reference: 'CnRkAAAAGnBVNFDeQoOQHzgdOpOqJNV7K9-c5IQrWFUYD9TNhUmz5-aHhfqyKH0zmAcUlkqVCrpaKcV8ZjGQKzB6GXxtzUYcP-muHafGsmW-1CwjTPBCmK43AZpAwW0FRtQDQADj3H2bzwwHVIXlQAiccm7r4xIQmjt_Oqm2FejWpBxLWs3L_RoUbharABi5FMnKnzmRL2TGju6UA4k'
+	  };
+	  var service = new google.maps.places.PlacesService(map);
+
+	  return service.getDetails(request, function(place, status) {
+	    if (status == google.maps.places.PlacesServiceStatus.OK) {
+	    	return place.formatted_phone_number;
+	    }
+	  });
+  }
+
   $scope.getLocation = function() {
     $http.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
@@ -83,6 +101,7 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
     		var location = res.data.results[0].geometry.location;
     		$scope.map.center.latitude = location.lat;
     		$scope.map.center.longitude = location.lng;
+    		// $scope.getDetail(location.lat, location.lng);
     	}
     });
     $scope.getEvents();
