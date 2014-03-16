@@ -26,13 +26,15 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 	$scope.events = [];
 	$scope.map = {
     options:{
-      scaleControl: false,
+      scaleControl: true,
       scrollwheel: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: true,
       mapTypeControlOptions: {
           style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-      }
+      },
+      maxZoom:20,
+      minZoom:3
     },
     center: {
     	latitude: 45,
