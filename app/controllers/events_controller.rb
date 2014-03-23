@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  layout "admin"
 
 	def show
 		@artist = Bandsintown::Artist.get({

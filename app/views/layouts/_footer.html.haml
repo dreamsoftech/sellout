@@ -6,14 +6,14 @@
   / end footer-ribon
   #footer-top
     .container
-      .row-fluid
-        .span3
+      .row
+        .col-md-3
           .panel
             %h4
               %i.icon-time
               Contact
             %p Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.
-            %ul.unstyled
+            %ul.list-unstyled
               %li
                 %i.icon-home
                 123, Los Angeles, CA, 54321
@@ -23,20 +23,20 @@
               %li
                 %i.icon-envelope
                 someone@company.com
-            %a.btn-proper.btn{href: "#"}
+            %a.btn.btn-default{href: "#"}
               %i.icon-facebook
-            %a.btn-proper.btn{href: "#"}
+            %a.btn.btn-default{href: "#"}
               %i.icon-twitter
-            %a.btn-proper.btn{href: "#"}
+            %a.btn.btn-default{href: "#"}
               %i.icon-google-plus
-            %a.btn-proper.btn{href: "#"}
+            %a.btn.btn-default{href: "#"}
               %i.icon-pinterest
-        .span3
+        .col-md-3
           .panel
             %h4
               %i.icon-suitcase
               Pages Link
-            %ul.unstyled.list-link
+            %ul.list-unstyled.list-link
               %li
                 %a{href: "#"} Condimentum - Condimentum gravida
               %li
@@ -49,7 +49,7 @@
                 %a{href: "#"} Pellentesque - Condimentum gravida
               %li
                 %a{href: "#"} Fusce vel - Condimentum gravida
-        .span3
+        .col-md-3
           .panel
             %h4
               %i.icon-screenshot
@@ -60,13 +60,13 @@
               %label Email
               %input{name: "", placeholder: "Enter Your Email", required: "", type: "email", value: ""}/
               %div
-                %button.btn-proper.btn Send
-        .span3
+                %button.btn .btn-default-proper.btn .btn-default Send
+        .col-md-3
           .panel
             %h4
               %i.icon-trophy
               Recent News
-            %ul.unstyled.list-link
+            %ul.list-unstyled.list-link
               %li
                 %a{href: "#"} Sed eu leo orci, condimentum gravida metus
               %li

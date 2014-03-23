@@ -12,8 +12,8 @@
       %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
   / End News Carousel
   .container
-    .row-fluid
-      .span9
+    .row
+      .col-md-9
         .panel.right-line
           %h2.main-heading.bottom-line
             %span.main-circle-icon
@@ -47,7 +47,7 @@
                       = link_to "GET TICKET", event.ticket_url, class: "btn btn-default"
 
             / END DETAIL
-      .span3
+      .col-md-3
         .panel
           %h3.main-heading.bottom-line.line-before
             %span.main-circle-icon
@@ -56,7 +56,7 @@
           .agent-panel.bottom-line.line-before
             %a.agent-image{href: "#"}
               %img.img-polaroid{alt: "agent", src: "#{@artist.image_url}"}/
-            %ul.unstyled.margin20
+            %ul.list-unstyled.margin20
               %li
                 %i.icon-phone
                 (+89)98732.984
@@ -77,10 +77,10 @@
             Contact Agent
           %form
             %label Name
-            %input.input-block-level{name: "name", placeholder: "Enter Your Name", required: "", type: "text"}/
+            %input.form-control{name: "name", placeholder: "Enter Your Name", required: "", type: "text"}/
             %label Email
-            %input.input-block-level{name: "email", placeholder: "Enter Your Email", required: "", type: "email"}/
+            %input.form-control{name: "email", placeholder: "Enter Your Email", required: "", type: "email"}/
             %label Message
-            %textarea.input-block-level{name: "message", placeholder: "Your Message", required: "", rows: "5"}
+            %textarea.form-control{name: "message", placeholder: "Your Message", required: "", rows: "5"}
             .clearfix
-              %input.btn.btn-proper{type: "submit", value: "Send"}/
+              %input.btn.btn-default{type: "submit", value: "Send"}/

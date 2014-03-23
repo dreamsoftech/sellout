@@ -1,33 +1,35 @@
-#search-panel.row-fluid
-  .pull-left
-    %span
-      Concerts within
-    %select{name: "distance", required: "", "ng-model"=>"distance", "ng-change"=>"getEvents()"}
-      %option{value: "2"} 2 miles
-      %option{value: "3"} 3 miles
-      %option{value: "5"} 5 miles
-      %option{value: "10"} 10 miles
-      %option{value: "15"} 15 miles
-      %option{value: "20"} 20 miles
-      %option{value: "30"} 30 miles
-      %option{value: "40"} 40 miles
-    %span of
-    %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getAddresses($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations", "typeahead-on-select"=>"getLocation()", "onclick"=>"this.select()"}
+.row
+  .col-sm-12
+    #search-panel.clearfix
+      .pull-left
+        %span
+          Concerts within
+        %select{name: "distance", required: "", "ng-model"=>"distance", "ng-change"=>"getEvents()"}
+          %option{value: "2"} 2 miles
+          %option{value: "3"} 3 miles
+          %option{value: "5"} 5 miles
+          %option{value: "10"} 10 miles
+          %option{value: "15"} 15 miles
+          %option{value: "20"} 20 miles
+          %option{value: "30"} 30 miles
+          %option{value: "40"} 40 miles
+        %span of
+        %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getAddresses($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations", "typeahead-on-select"=>"getLocation()", "onclick"=>"this.select()"}
 
-    / %input.input-small.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
-    / %input.input-small.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
+        / %input.input-small.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
+        / %input.input-small.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
 
-    / .control-group-form
-    /   .control-group.half.pull-left
-    /     %label.checkbox
-    /       %input{type: "checkbox"}
-    /         Recommended
-    /   .control-group.half.text-left.pull-right
-    /     %label.checkbox
-    /       %input{type: "checkbox"}
-    /         Sale
-  .pull-right
-    .btn-group
-      = change_view('list', 'Upcomming')
-      = change_view('calendar', 'Calendar')
-      = change_view('venue', 'Venues')
+        / .form-group-form
+        /   .form-group.half.pull-left
+        /     %label.checkbox
+        /       %input{type: "checkbox"}
+        /         Recommended
+        /   .form-group.half.text-left.pull-right
+        /     %label.checkbox
+        /       %input{type: "checkbox"}
+        /         Sale
+      .pull-right
+        .btn-group
+          = change_view('list', 'Upcomming')
+          = change_view('calendar', 'Calendar')
+          = change_view('venue', 'Venues')

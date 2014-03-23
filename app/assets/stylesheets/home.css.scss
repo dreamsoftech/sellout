@@ -74,9 +74,8 @@
   .clearfix {
     padding: 15px;
     border-bottom: 1px solid #ccc;
+    background: white;
   }
-  background: white;
-  border: 1px solid #ccc;
   position: relative;
   min-height: 150px !important;
 }
@@ -142,4 +141,30 @@
 
 .gm-style .gm-style-iw div {
   overflow: hidden !important;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+* {
+  border-radius: 0px !important;
+}
+
+.btn-md {
+  padding: 10px 15px;
+  border-color: #eee;
+}
+
+.dt-picker {
+  th, td {
+    padding: 0px !important;
+    border: none;
+  }
+
+  .btn {
+    border: none;
+    min-height: 40px;
+  }
+
 }

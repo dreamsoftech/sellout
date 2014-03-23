@@ -141,7 +141,7 @@ function init_slider(){
 
 function init_grid(){
     $(".grid-item").gridalicious({
-        width: 250,
+        width: 215,
         gutter: 20,
         animate: true,
         effect: 'fadeInOnAppear'

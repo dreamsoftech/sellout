@@ -6,7 +6,7 @@ module HomeHelper
 
 	def change_view(view, label)
 		content_tag(:a, label, 
-			class: "btn btn-large", 
+			class: "btn btn-default btn-lg", 
 			"ng-click"=>"view='#{view}'; getEvents();", 
 			"ng-class"=>"{active: view=='#{view}'}"
 		)

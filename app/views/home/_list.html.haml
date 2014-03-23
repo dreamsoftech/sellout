@@ -1,5 +1,5 @@
-.row-fluid
-  .span9.events-list
+.row
+  .col-md-8.events-list
     .loading.text-center(ng-show="loading == true")
       %img{src: "/assets/ajax-loader.gif"}
     .featured-grid
@@ -12,7 +12,7 @@
                 %br
                 %h1.link DETAIL INFO
                 %h4.link {{event.datetime}}
-                %ul.inline
+                %ul.list-inline
                   / - event.artists.each do |artist|
                   /   %li
                   /     %img.img-small{src: "#{artist.image_url}"}
@@ -35,7 +35,7 @@
             %p
               Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
               Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
-            %a.btn-proper.btn.btn-small{href: "#"} Read More
+            %a.btn.btn-default.btn-sm{href: "#"} Read More
           .media.box-white
             %a.pull-left{href: "#"}
               %img.media-object{alt: "images", src: "http://placehold.it/150x90"}
@@ -44,12 +44,7 @@
               %p
                 Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
                 Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
-              %a.btn-proper.btn.btn-small{href: "#"} Read More
+              %a.btn.btn-default.btn-sm{href: "#"} Read More
           / End News List
-  .span3
-    .box-white
-      / Start List Our Agent
-      %h4
-        News and Advertising area
-      .list-items
-        %img{src: "/assets/ads.jpg"}
+  .col-md-4
+    %img.img-responsive{src: "/assets/ads.jpg"}

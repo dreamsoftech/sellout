@@ -13,4 +13,10 @@
     / Start Wrapper
     #wrapper
       = render "layouts/navigation"
-      = yield
+      .container
+        = render "layouts/messages"
+        .row
+          .col-md-3
+            = render "shared/leftmenu"
+          .col-md-9
+            = yield

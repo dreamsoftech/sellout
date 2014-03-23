@@ -1,6 +1,6 @@
 Sellout::Application.routes.draw do
   authenticated :user do
-    root :to => "event#new"
+    root :to => "events#new"
   end
   root :to => "home#index"
 

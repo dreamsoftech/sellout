@@ -1,8 +1,7 @@
-.container
-  .panel
-    %h2 New Event
-    = simple_form_for :event, :url => event_path(:event), :html => {:class => 'form-vertical' } do |f|
-      = f.input :artist, :autofocus => true
-      = f.input :ticket_url
-      = f.input :ticket_price
-      = f.button :submit, "Sign in", :class => 'btn-primary'
+.panel
+  %h2 New Event
+  = simple_form_for :event, :url => event_path(:event), :html => {:class => 'form-vertical' } do |f|
+    = f.input :artist, :autofocus => true
+    = f.input :ticket_url
+    = f.input :ticket_price
+    = f.button :submit, "Save", :class => 'btn-primary'

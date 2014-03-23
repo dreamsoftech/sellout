@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
 
 /* Main settings */
-body {width: 100%; overflow-x: hidden;-webkit-font-smoothing: antialiased;background-color: #DDD;color: #000;font-size: 13px;height: 100%;margin: 0px;padding: 0px;font-family: 'Open Sans', sans-serif;background-image: url(/assets/pattern/diagonal-noise.png)}
+body {width: 100%; overflow-x: hidden;-webkit-font-smoothing: antialiased;background-color: #DDD;color: #000;height: 100%;margin: 0px;padding: 0px;font-family: 'Open Sans'; background-image: url(/assets/pattern/diagonal-noise.png)}
 a{color: #000;}
 a, .btn{-webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;-ms-transition: all 0.25s ease-out 0s;-o-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;}
 h1, h2, h3, h4, h5, h6{font-weight: 300;}
@@ -13,26 +13,10 @@ breadcrumb-wrapper
 #breadcrumb-wrapper{background-color:  #141414;}
 #breadcrumb-wrapper a, #breadcrumb-wrapper{color: white;font-size: 11px;padding: 5px;}
 
-/*============================================================================
-header-wrapper
-============================================================================*/
-#header-wrapper{background-color:  #3d3d3d;border-bottom: 1px solid #141414;}
-#header-wrapper a{color: #cccccc;text-decoration: none;}
-#header-wrapper a h1{margin: 0;padding: 20px 0; display: inline-block}
-#header-wrapper a h1 small{font-size: 30%;color: white;}
-#header-wrapper .form-search{padding-top: 10px;margin-bottom: 0px;padding-bottom: 0;}
-#header-wrapper .form-search .input-append{width: 100%;}
-#header-wrapper .form-search input {margin-bottom: 0;color: #DBDBDB;text-shadow: 0 1px 0 rgba(0,0,0,0.4);-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;outline: none;float: left;display: block;font-size: 14px;vertical-align: middle;border: 1px solid #454545;height: 40px;background: #353535;-moz-box-shadow: inset 1px 1px 0 #1D1D1D;-webkit-box-shadow: inset 1px 1px 0 #1D1D1D;box-shadow: inset 1px 1px 0 #1D1D1D;}
-#header-wrapper .form-search button {position: absolute;margin-top: 2px;z-index: 2;background: none;border: 0;-moz-border-radius: 0;-webkit-border-radius: 0; border-radius: 0;color: white;margin-left: -40px;}
-#header-wrapper .panel{padding-bottom: 0;}
-#header-wrapper .left-line{border-left:1px solid #141414;}
-#header-wrapper .right-line{border-right:1px solid #141414;}
-#header-wrapper .language_curency {font-size: 12px;text-align: right;padding-top: 5px;}
-
 /* ==========================================================================
    Navbar Styles
    ========================================================================== */ 
-#navigation{background-color: black;}
+/*#navigation{background-color: black;}
 #navigation .mylisting{padding: 10px;background: #3D3D3D;color: #CCC;margin-top: 10px;border: 1px solid #141414;text-decoration: none;}
 #navigation .mylisting:hover{background: #5c5c5c;border: 1px solid #CCC;}
 #navigation a.brand{font-size: 30px; font-weight: bold}
@@ -61,7 +45,7 @@ header-wrapper
 .dropdown-menu li > a:hover, dropdown-menu li > a:focus,.dropdown-submenu:hover > a{background: rgba(255,255,255,0.2)!important;filter:none}
 .dropdown-menu{border-radius:0 !important;background: #3D3D3D !important;z-index: 99999;padding: 0;}
 .dropdown-submenu > a:after {margin-right: -6px;}
-.dropdown-menu li > a {}
+.dropdown-menu li > a {}*/
 
 /*============================================================================
 Content Css

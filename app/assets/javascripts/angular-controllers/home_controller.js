@@ -1,5 +1,5 @@
 var selloutApp = angular.module('selloutApp', ['ui.bootstrap', 'google-maps', 'ngRoute'])
-.config(function ($httpProvider) {
+.config(function ($httpProvider, $routeProvider) {
    delete $httpProvider.defaults.headers.common['X-Requested-With']; //Fixes cross domain requests
 });
 
@@ -159,7 +159,7 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
   }
 
   $scope.artistImageUrl = function(event) {
-		return event.artists[0].url + "/photo/medium.jpg";
+		return event.artists[0].url + "/photo/large.jpg";
   }
 
   $scope.removeWhitespace = function(str) {
