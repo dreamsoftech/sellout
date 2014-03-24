@@ -12,5 +12,8 @@
  *= require bootstrap
  *= require font-awesome
  *= require_directory ./plugin
- *= require_tree
+ *= require base-admin-3
+ *= require base-admin-3-responsive
+ *= require font-awesome
+ *= require_tree .
  */

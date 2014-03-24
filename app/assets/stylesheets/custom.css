@@ -1,0 +1,189 @@
+/*------------------------------------------------------------------
+
+[Custom Stylesheet]
+
+
+Last change:	10/09/2013
+Assigned to:	Kevin
+
+-------------------------------------------------------------------*/
+
+html, body
+{
+	height: 100%;
+	padding: 0px;
+}
+
+#container
+{
+	min-height: 100%;
+	position: relative;
+}
+
+#main
+{
+	padding-bottom: 80px;
+	margin-top: 40px;
+}
+
+.footer
+{
+	width: 100%;
+	bottom: 0px;
+
+	position: absolute;
+}
+
+.alert
+{
+	padding: 11px;
+}
+
+.action-div
+{
+	border-bottom: 1px solid #eee;
+	padding-bottom: 6px;
+	margin-bottom: 15px;
+	display: table;
+}
+
+.none-border td
+{
+	border: none !important;
+}
+
+.margin-right-20
+{
+	margin-right: 20px;
+}
+
+.form-group
+{
+	margin-bottom: 10px;
+}
+
+.display-none
+{
+	display: none;
+}
+
+.min-height-200
+{
+	min-height: 200px;
+}
+
+.img-width-150
+{
+	width: 150px;
+	height: 150px;
+}
+
+.action-field {
+	width: 200px;
+}
+
+.datepicker {
+	z-index: 1050 !important;
+}
+
+.action-buttons {
+	float: left;
+}
+.action-buttons button {
+	width: 100%;
+}
+
+.curryency h1 {
+	border: 1px #ccc solid;
+}
+
+.border-wrap {
+	border: 1px #ccc solid;
+}
+
+.table {
+	margin-top: 3px;
+}
+
+
+.mgn-b-2 {
+	margin-bottom: 2px;
+}
+.mgn-b-5 {
+	margin-bottom: 5px;
+}
+.mgn-b-10 {
+	margin-bottom: 10px;
+}
+.mgn-b-20 {
+	margin-bottom: 20px;
+}
+.mgn-b-40 {
+	margin-bottom: 40px;
+}
+
+.mgn-t-0 {
+	margin-top: 0px;
+}
+.mgn-t-2 {
+	margin-top: 2px;
+}
+.mgn-t-5 {
+	margin-top: 5px;
+}
+.mgn-t-10 {
+	margin-top: 10px;
+}
+.mgn-t-15 {
+	margin-top: 15px;
+}
+.mgn-t-20 {
+	margin-top: 20px;
+}
+.mgn-t-30 {
+	margin-top: 30px;
+}
+.mgn-t-40 {
+	margin-top: 40px;
+}
+
+.mgn-l-0 {
+	margin-left: 0px;
+}
+.mgn-l-2 {
+	margin-left: 2px;
+}
+.mgn-l-5 {
+	margin-left: 5px;
+}
+.mgn-l-10 {
+	margin-left: 10px;
+}
+.mgn-l-20 {
+	margin-left: 20px;
+}
+.mgn-l-40 {
+	margin-left: 40px;
+}
+
+
+.ft16{
+	font-size: 16px;
+}
+
+.ft24{
+	font-size: 24px;
+}
+
+a:hover, a:focus {
+	text-decoration: none;
+}
+
+.dropdown a {
+	cursor: pointer;
+}
+
+.center {
+	margin: 0 auto;
+	float: none;
+}

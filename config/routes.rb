@@ -1,6 +1,11 @@
 Sellout::Application.routes.draw do
+  get "/about"  => "home#about"
+  get "/contact"  => "home#contact"
+  get "/faq"  => "home#faq"
+  get "/terms"  => "home#terms"
+
   authenticated :user do
-    root :to => "events#new"
+    root :to => "events#index"
   end
   root :to => "home#index"
 

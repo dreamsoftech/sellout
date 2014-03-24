@@ -3,7 +3,7 @@
     .loading.text-center(ng-show="loading == true")
       %img{src: "/assets/ajax-loader.gif"}
     .featured-grid
-      .box-white
+      .box-white.min-height-200
         .grid-item.grid-style-properties
           .item{"ng-repeat" => "event in events", "ng-show"=>"loading != true"}
             %a.with-hover{href: "events/{{removeWhitespace(event.artists[0].name)}}"}
@@ -20,31 +20,6 @@
             %p
               {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
 
-        / End Grid Featured
-      / Start New List
-      %h2.main-heading.bottom-line.top-line
-        %span.main-circle-icon
-          %i.icon-book
-        News
-      .news.right-space
-        .media.box-white
-          %a.pull-left{href: "#"}
-            %img.media-object{alt: "images", src: "/assets/news/thum/n1.jpg"}
-          .media-body
-            %h4.media-heading Investor Club
-            %p
-              Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
-              Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
-            %a.btn.btn-default.btn-sm{href: "#"} Read More
-          .media.box-white
-            %a.pull-left{href: "#"}
-              %img.media-object{alt: "images", src: "http://placehold.it/150x90"}
-            .media-body
-              %h4.media-heading Investor Club
-              %p
-                Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
-                Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet, consectetur fermentum adipiscing elit.
-              %a.btn.btn-default.btn-sm{href: "#"} Read More
-          / End News List
   .col-md-4
-    %img.img-responsive{src: "/assets/ads.jpg"}
+    .box-white
+      %img.img-responsive.center{src: "/assets/ads.jpg"}

@@ -27,4 +27,12 @@ module ApplicationHelper
       }
     end
   end
+
+  def active_sub_menu(params)
+    if controller.controller_name == params
+      return "active"
+    else
+      return ""
+    end
+  end
 end

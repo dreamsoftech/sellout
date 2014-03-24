@@ -1,0 +1,54 @@
+#contact-us.container
+	.row
+		.section-title
+			%h2.text-center We Love To Hear From You
+	.row
+		.col-sm-8
+			%p
+				We're always happy to hear from our readers! If you'd like to get in touch with us, please fill out the form below. Note that this form right here is a demonstration and will not actually contact anybody ;)
+				%br
+				If you have anyting to ask, please send message
+			%hr
+			= form_for :contact, html: {class: "form-vertical"} do |f|
+				.form-group
+					= f.label :name, "Name", class: "form-label"
+					= f.text_field :name, class: "form-control"
+
+				.form-group
+					= f.label :email, "Email", class: "form-label"
+					= f.email_field :email, class: "form-control"
+
+				.form-group
+					= f.label :message, "Message", class: "form-label"
+					= f.text_area :message, class: "form-control"
+				.form-group
+					= f.submit "Send Message", class: "btn btn-primary btn-lg"
+		.col-sm-3.col-sm-offset-1
+			.well.box-white
+				%h4 Address
+				%ul
+					%li
+						%span.mark
+							%i.icon-map-marker
+						Contact Address 1
+						%br
+						Contact Address 1
+				%hr
+				%h4 Phone Number
+				%ul
+					%li
+						%span.mark
+							%i.icon-phone
+						01-231-3212
+					%li
+						%span.mark
+							%i.icon-print
+						01-231-3212
+					%li
+						%span.mark
+							%i.icon-money
+						01-231-3212
+				%hr
+				%h4 Contact Information
+				%p
+					Find recommended events around Boston, MA for fans of Led Zeppelin

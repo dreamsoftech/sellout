@@ -1,0 +1,20 @@
+.subnavbar
+  .subnavbar-inner
+    .container
+      %a.subnav-toggle{"data-target" => ".subnav-collapse", "data-toggle" => "collapse", href: "javascript:;"}
+        %span.sr-only Toggle navigation
+        %i.icon-reorder
+      .collapse.subnav-collapse
+        %ul.mainnav
+          %li{class: active_sub_menu('artist')}
+            %a{href: "/artists"}
+              %i.icon-home
+              %span Artists
+          %li{class: active_sub_menu('events')}
+            %a{href: "/events"}
+              %i.icon-calendar
+              %span Events
+          %li{class: active_sub_menu('venues')}
+            %a{href: "/venues"}
+              %i.icon-credit-card
+              %span Venues

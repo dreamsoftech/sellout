@@ -1,0 +1,37 @@
+body.posts{
+	.blog_post {
+
+	}
+	a {
+		text-decoration: none;
+	}
+	#blog_related {
+		margin-top: 20px;
+	}
+
+	#blog_tags {
+		ul li {
+			background: #eee;
+			padding: 2px 10px;
+			margin-right: 5px;
+
+			a {
+				color: #444;
+			}
+			&:hover {
+				background-color: #4eadd3;
+			}
+		}
+	}
+
+	background: none;
+
+	textarea {
+		height: 200px;
+		resize: none;
+	}
+
+	img {
+		max-width: 100%;
+	}
+}

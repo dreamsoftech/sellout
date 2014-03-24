@@ -1,0 +1,14 @@
+.modal.fade{ role: "dialog", id: "add-event" }
+  .modal-dialog
+    = simple_form_for :event, :url => event_path(:event), :html => {:class => 'form-vertical' } do |f|
+      .modal-content
+        .modal-header
+          %a.close{"data-dismiss" => "modal"} ×
+          %h4 New Event
+        .modal-body
+          = f.input :artist, :autofocus => true
+          = f.input :ticket_url
+          = f.input :ticket_price
+        .modal-footer
+          = f.button :submit, "Create", :class => 'btn-primary'
+          %a.btn.btn-default{"data-dismiss" => "modal", href: "#"} Close

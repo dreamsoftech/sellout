@@ -1,0 +1,42 @@
+// Place all the styles related to the faqs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#faq ul {
+	padding: 0;
+	list-style: none;
+
+	.faq-icon {
+		display: table-cell;
+		padding-right: 1.25em;
+		vertical-align: top;
+
+		.faq-number {
+			width: 32px;
+			height: 32px;
+			font-size: 14px;
+			font-weight: 600;
+			text-align: center;
+			line-height: 32px;
+			color: #ffffff;
+			background: #4eadd3;
+			border: 3px solid #ffffff;
+			box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+			border-radius: 100px;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		}
+
+	}
+	.faq-text {
+		display: table-cell;
+		vertical-align: top;
+	}
+}
+#faq-detail li {
+	display: table;
+	margin-bottom: 2em;
+}
+#faq-context li a {
+	margin-left: 0.5em;
+}

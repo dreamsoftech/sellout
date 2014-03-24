@@ -159,7 +159,7 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
   }
 
   $scope.artistImageUrl = function(event) {
-		return event.artists[0].url + "/photo/large.jpg";
+		return event.artists[0].url + "/photo/medium.jpg";
   }
 
   $scope.removeWhitespace = function(str) {

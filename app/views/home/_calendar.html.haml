@@ -6,18 +6,19 @@
   .col-md-8.events-list
     .loading.text-center(ng-show="loading == true")
       %img{src: "/assets/ajax-loader.gif"}
-    .clearfix.border-1(ng-repeat="event in events")
-      .col-md-3
-        %h4
-          {{getTime(event.datetime)}}
-      .col-md-9
-        %h5
-          %b Location: 
-          {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
-        %h5
-          %b Artists: 
-          {{getArtists(event)}}
-        %a.btn.btn-default.btn-md.btn-danger{"ng-href"=>"event.ticket_url", "ng-show"=>"ticketAvailable(event)"} GET TICKET
+    .box-white.min-height-200
+      .clearfix.border-1(ng-repeat="event in events")
+        .col-md-3
+          %h4
+            {{getTime(event.datetime)}}
+        .col-md-9
+          %h5
+            %b Location: 
+            {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
+          %h5
+            %b Artists: 
+            {{getArtists(event)}}
+          %a.btn.btn-default.btn-md.btn-danger{"ng-href"=>"event.ticket_url", "ng-show"=>"ticketAvailable(event)"} GET TICKET
   .col-md-4
-    .panel
+    .box-white
       %datepicker{min: "minDate", "show-weeks" => "false", "ng-model" => "$parent.dt", "ng-change"=>"getEvents()"}

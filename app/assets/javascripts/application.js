@@ -13,8 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.carouFredSel-6.2.1
-//= require jquery.grid-a-licious
 //= require angular
 //= require angular-route
 //= require_directory ./common

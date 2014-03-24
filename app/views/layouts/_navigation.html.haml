@@ -2,23 +2,15 @@
 %nav.navbar.navbar-inverse{role: "navigation"}
   .container
     .navbar-header
-      %button.navbar-toggle{"data-target" => "navbar-collapse", "data-toggle" => "collapse", type: "button"}
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{href: "#"} Sellout
+      %a.navbar-brand{href: "/"} Sellout
     / .navbar-collapse
     .navbar-collapse.collapse
       %ul.nav.navbar-nav.navbar-right
         = render "layouts/navigation_links"
-        - if user_signed_in?
-          %li
-            = link_to 'Logout', destroy_user_session_path, :method=>'delete'
-          %li
-            = link_to 'Edit account', edit_user_registration_path
-        - else
-          %li
-            = link_to 'Sign up', new_user_registration_path
-          %li
-            = link_to 'Login', new_user_session_path
+- if user_signed_in?
+  = render 'layouts/sub_navbar'

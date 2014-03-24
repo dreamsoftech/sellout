@@ -1,17 +1,11 @@
 .bannerarea
   #banner.carousel.slide.carousel-fade
-    %ol.carousel-indicators
-      %li.active{"data-slide-to" => "0", "data-target" => "#banner"}
-      %li{"data-slide-to" => "1", "data-target" => "#banner"}
-      %li{"data-slide-to" => "2", "data-target" => "#banner"}
     / Carousel items
     .carousel-inner
       .item.active
         %img{src: "/assets/banner/banner1.jpg", style: "width: 100%;"}
       .item
         %img{src: "/assets/banner/banner2.jpg", style: "width: 100%;"}
-      .item
-        %img{src: "/assets/banner/banner3.jpg", style: "width: 100%;"}
   :javascript
     $("#banner").carousel();
 

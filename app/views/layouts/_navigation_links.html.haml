@@ -1,24 +1,32 @@
-%li.dropdown.active
-  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-    Home
-    / %b.caret
-    / %ul.dropdown-menu
-    /   %li
-    /     %a{href: "home_full_slider.html"} Home Full Slider
-    /   %li
-    /     %a{href: "home_carousel.html"} Home Slider Carousel
-    /   %li
-    /     %a{href: "index.html"} Home With Map
-    /   %li
-    /     %a{href: "home_simple.html"} Home Simple
-%li.dropdown
-  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-    News
-    %b.caret
-  %ul.dropdown-menu
-    %li
-      %a{href: "news.html"} News List
-    %li
-      %a{href: "news_detail.html"} News Detail
-%li
-  %a{href: "contact.html"} Contact
+- if user_signed_in?
+  %li.dropdown
+    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "javscript:;"}
+      %i.icon-cog
+      Setting
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        %a{href: "javascript:;"} Privacy Settings
+      %li.divider
+      %li
+        %a{href: "javascript:;"} Help
+  %li.dropdown
+    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "javscript:;"}
+      %i.icon-user
+      = current_user.name
+      %b.caret
+    %ul.dropdown-menu
+      %li= link_to 'My Profile', edit_registration_path(current_user)
+      %li.divider
+      %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+- else
+  %li
+    %a{href: "#"} Blog
+  %li
+    %a{href: "/contact"} Contact
+  %li
+    %a{href: "/faq"} Faq
+  %li
+    = link_to 'Sign up', new_user_registration_path
+  %li
+    = link_to 'Login', new_user_session_path

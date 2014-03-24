@@ -80,6 +80,11 @@
   min-height: 150px !important;
 }
 
+.box-white{
+  background: white;
+  border: 1px solid #ccc;
+}
+
 .loading {  
   position:absolute;
   top:0;
@@ -147,10 +152,6 @@
   margin-bottom: 0px;
 }
 
-* {
-  border-radius: 0px !important;
-}
-
 .btn-md {
   padding: 10px 15px;
   border-color: #eee;
@@ -167,4 +168,62 @@
     min-height: 40px;
   }
 
+}
+
+/*===============================
+Hover standart style
+===============================*/
+.with-hover{position: relative;display: block;}
+.with-hover span{-webkit-transition: all 0.25s ease-out 0s;-moz-transition: all 0.25s ease-out 0s;-ms-transition: all 0.25s ease-out 0s;-o-transition: all 0.25s ease-out 0s;transition: all 0.25s ease-out 0s;opacity:0;position: absolute;width: 100%;height: 100%;top:0;left: 0;background: rgba(0, 0, 0, 0.9)}
+.with-hover span:hover{opacity:0.9;}
+.with-hover span h1 {border-bottom: 2px solid white}
+.with-hover span.mask_hover .link{color:white; text-align: center; font-weight: bold;}
+
+
+#content .grid-item .item {box-shadow:1px 1px 7px 0px #999;}
+#content .grid-style-properties p{margin: 0;color: black;padding: 10px;text-align: center;}
+
+
+body.home {
+  background: none;
+}
+#contact-us {
+  h4 {
+    line-height: 30px;
+  }
+
+  input[type=text],
+  input[type=email] {
+    width: 50%;
+  }
+
+  textarea {
+    height: 280px;
+  }
+
+  .mark {
+    color: #4eadd3;
+    font-size: 16px;
+    padding-right: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+
+}
+
+.section-title {
+  overflow: hidden;
+  margin: 30px 0;
+  text-align: center;
+  background: url(/assets/bg-title.gif) repeat-x 0 50%;
+
+  h2 {
+    display: inline-block;
+    padding: 0 .75em;
+    font-size: 26px;
+    background: #FFF;
+  }
 }
