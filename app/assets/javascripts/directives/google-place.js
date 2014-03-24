@@ -4,8 +4,8 @@
       require: 'ngModel',
       link: function(scope, element, attrs, model) {
         var options = {
-          types: [],
-          componentRestrictions: {}
+          types: ["(cities)"],
+          componentRestrictions: {country: "us"}
         };
 
         scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
@@ -14,7 +14,7 @@
           scope.$apply(function() {
             // Get the place details from the autocomplete object.
             model.$setViewValue(element.val());
-            scope.previewPlace();
+            scope.getLocation();
           });
         });
       }

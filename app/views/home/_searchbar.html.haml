@@ -14,7 +14,7 @@
           %option{value: "30"} 30 miles
           %option{value: "40"} 40 miles
         %span of
-        %input{name: "location", autocomplete: "off", "ng-model" => "location", size: "{{location.length}}", placeholder: "Input location", type: "text", typeahead: "address for address in getAddresses($viewValue) | filter:$viewValue", "typeahead-loading" => "loadingLocations", "typeahead-on-select"=>"getLocation()", "onclick"=>"this.select()"}
+        %input{name: "location", autocomplete: "off", "ng-model" => "location", placeholder: "Input location", type: "text", googleplace: "", "onclick"=>"this.select()"}
 
         / %input.input-small.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
         / %input.input-small.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}

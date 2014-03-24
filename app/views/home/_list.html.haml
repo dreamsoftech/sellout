@@ -2,6 +2,8 @@
   .col-md-8.events-list
     .loading.text-center(ng-show="loading == true")
       %img{src: "/assets/ajax-loader.gif"}
+    .alert.alert-danger(ng-show="loading == false && events.length == 0")
+      %h4 There is no concerts.
     .featured-grid
       .box-white.min-height-200
         .grid-item.grid-style-properties

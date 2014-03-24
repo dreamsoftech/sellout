@@ -6,5 +6,5 @@
       = render "list"
     #calendar_view{"ng-if"=>"view=='calendar'"}
       = render "calendar"
-    #venue_view{"ng-if"=>"view=='venue'", "ng-init"=>"getLocation()"}
+    #venue_view{"ng-if"=>"view=='venue'"}
       = render "venues"

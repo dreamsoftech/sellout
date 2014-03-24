@@ -89,22 +89,19 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
   }
 
   $scope.getLocation = function() {
-    $http.get('https://maps.googleapis.com/maps/api/geocode/json', {
-      params: {
-      	// key: "AIzaSyAHWvq6qmw1cgJXhD2dlTQ7vGrBX6hbAAI",
-        address: $scope.location,
-        sensor: false
-      }
-    }).then(function(res){
-    	if (res.data.results.length > 0)
-    	{
-    		var location = res.data.results[0].geometry.location;
-    		$scope.map.center.latitude = location.lat;
-    		$scope.map.center.longitude = location.lng;
-    		// $scope.getDetail(location.lat, location.lng);
-    	}
-    });
+    p = $scope.gPlace.getPlace()
+    if (p.geometry && p.geometry.location) {
+      $scope.map.center.latitude = p.geometry.location.lat();
+      $scope.map.center.longitude = p.geometry.location.lng();
+    }
     $scope.getEvents();
+  };
+
+  var onMarkerClicked = function (marker) {
+    if ($scope.prevMarker)
+      $scope.prevMarker.showWindow = false;
+    marker.showWindow = true;
+    $scope.prevMarker = marker;
   };
 
   $scope.getEvents = function() {
@@ -129,10 +126,23 @@ selloutApp.controller('HomeController', function($scope, $http, $filter) {
 					$scope.map.markers.push({
 						latitude: event.venue.latitude,
 						longitude: event.venue.longitude,
-						image_url: $scope.artistImageUrl(event),
+            image_url: $scope.artistImageUrl(event),
+						ticket_url: event.ticket_url,
 						address: event.venue.name
 					});
 		  	})
+
+        _.each($scope.map.markers, function (marker) {
+          marker.closeClick = function () {
+            marker.showWindow = false;
+            $scope.$apply();
+          };
+          marker.onClicked = function () {
+            onMarkerClicked(marker);
+            $scope.$apply();
+          };
+        });
+
 
 		  	$scope.$apply();
 		  	if ($scope.view == 'list')

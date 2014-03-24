@@ -4,6 +4,8 @@
   .google-map{center: "map.center", draggable: "true",options: "map.options", pan: "true", zoom: "map.zoom"}
     %markers{click: "'onClicked'", coords: "'self'", icon: "'icon'", labelanchor: "22 0", labelclass: "marker-labels", labelcontent: "'title'", models: "map.markers"}
       %windows{closeclick: "'closeClick'", "ng-cloak" => "", show: "'showWindow'"}
-        %h5{"ng-non-bindable" => ""}
-          %b {{address}} {{getDetail(latitude, longitude)}}
         %img.img-responsive{"ng-non-bindable" => "", "src"=>"{{image_url}}"}
+        %h5{"ng-non-bindable" => ""}
+          %b {{address}}
+        %p{"ng-non-bindable" => ""}
+          %a.btn.btn-primary{href: "{{ticket_url}}"} GET TICKET
