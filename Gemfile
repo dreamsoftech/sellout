@@ -22,6 +22,8 @@ gem 'bandsintown', '0.0.0', :github => 'reedkevin88/bandsintown'
 gem 'nokogiri'
 gem 'geocoder', "~> 1.1.8"
 gem 'angularjs-rails'
+gem 'aws-sdk', '~> 1.5.7'
+gem 'paperclip'
 
 group :development do
   gem 'better_errors'

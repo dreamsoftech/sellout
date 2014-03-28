@@ -1,4 +1,4 @@
-#event-list.row
+#event-list.row(ng-controller="EventController")
   .widget.stacked
     .widget-header
       %h3
@@ -7,22 +7,28 @@
     .widget-content.min-height-200
       .row
         .col-sm-12.text-right
-          =# link_to "New Event", "#add-event", class: "btn btn-primary", data: { toggle: "modal" }
+          = link_to "New Event", "#add-event", class: "btn btn-primary", data: { toggle: "modal" }
         = render "new"
       .row
         .col-sm-12
           %table.table.table-bordered.table-striped
             %thead
               %tr
-                %th Name
-                %th Date
-                %th Ticket Url
+                %th Title
+                %th Artists
+                %th Venue Name
                 %th Ticket Price
-                %th
+                %th Perform Date
+                %th.action
             %tbody
-              %tr
-                %td
-                %td
-                %td
-                %td
-                %td
+              - @events.each do |event|
+                %tr
+                  %td= event.title
+                  %td= event.artists
+                  %td= event.venue_name
+                  %td= event.ticket_price
+                  %td= event.perform_date
+                  %td
+                    = link_to "<i class='icon-edit'></i> Edit".html_safe, "#event-#{event.id}", class: "btn btn-default btn-sm", data: { toggle: "modal" }
+                    = render partial: "modify", locals: {event: event}
+                    = link_to "<i class='icon-remove'></i> Remove".html_safe, event_path(event), data: { confirm: "Are you sure to remove this?"} , method: :delete, class: "btn btn-danger btn-sm"

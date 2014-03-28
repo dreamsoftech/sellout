@@ -7,7 +7,7 @@
     .widget-content.min-height-200
       .row
         .col-sm-12.text-right
-          =# link_to "New Event", "#add-event", class: "btn btn-primary", data: { toggle: "modal" }
+          = link_to "New Artist", "#add-event", class: "btn btn-primary", data: { toggle: "modal" }
         = render "new"
       .row
         .col-sm-12
@@ -15,14 +15,20 @@
             %thead
               %tr
                 %th Name
-                %th Date
-                %th Ticket Url
-                %th Ticket Price
-                %th
+                %th Space Url
+                %th Website
+                %th Facebook
+                %th Twitter
+                %th.action
             %tbody
-              %tr
-                %td
-                %td
-                %td
-                %td
-                %td
+              - @artists.each do |artist|
+                %tr
+                  %td= artist.name                    
+                  %td= artist.space_url
+                  %td= artist.website
+                  %td= artist.facebook
+                  %td= artist.twitter
+                  %td
+                    = link_to "<i class='icon-edit'></i> Edit".html_safe, "#artist-#{artist.id}", class: "btn btn-default btn-sm", data: { toggle: "modal" }
+                    = render partial: "modify", locals: {artist: artist}
+                    = link_to "<i class='icon-remove'></i> Remove".html_safe, artist_path(artist), data: { confirm: "Are you sure to remove this?"} , method: :delete, class: "btn btn-danger btn-sm"

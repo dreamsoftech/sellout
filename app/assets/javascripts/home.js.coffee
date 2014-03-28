@@ -3,4 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	$(".datepicker").datepicker()
+  $(".datetimepicker").datetimepicker({
+    format: 'yyyy-mm-dd HH:ii P'
+    autoclose: true
+    todayBtn: true
+    pickerPosition: "bottom-left"
+  })

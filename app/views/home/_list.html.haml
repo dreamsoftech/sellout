@@ -2,10 +2,11 @@
   .col-md-8.events-list
     .loading.text-center(ng-show="loading == true")
       %img{src: "/assets/ajax-loader.gif"}
-    .alert.alert-danger(ng-show="loading == false && events.length == 0")
-      %h4 There is no concerts.
     .featured-grid
       .box-white.min-height-200
+        .alert.alert-danger(ng-show="loading == false && events.length == 0")
+          %h4 There is no concerts.
+
         .grid-item.grid-style-properties
           .item{"ng-repeat" => "event in events", "ng-show"=>"loading != true"}
             %a.with-hover{href: "events/{{removeWhitespace(event.artists[0].name)}}"}

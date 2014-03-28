@@ -4,8 +4,8 @@
       require: 'ngModel',
       link: function(scope, element, attrs, model) {
         var options = {
-          types: ["(cities)"],
-          componentRestrictions: {country: "us"}
+          types: attrs["googleplace"] == "" ? [] : [attrs["googleplace"]],
+          componentRestrictions: {}
         };
 
         scope.gPlace = new google.maps.places.Autocomplete(element[0], options);

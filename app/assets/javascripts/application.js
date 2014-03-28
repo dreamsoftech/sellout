@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require angular
+//= require angular-resource
 //= require angular-route
+//= require angular-bootstrap
 //= require_directory ./common
 //= require_directory ./plugin
 //= require proper

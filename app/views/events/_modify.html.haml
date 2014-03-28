@@ -1,10 +1,10 @@
-.modal.fade{ role: "dialog", id: "add-event" }
+.modal.fade{ role: "dialog", id: "event-" + event.id.to_s }
   .modal-dialog
-    = simple_form_for :event, :url => events_path, :defaults => {required: false, :input_html =>{ :class => "form-control" }}, :html => {:class => 'form-vertical' } do |f|
+    = simple_form_for event, url: event_path(event), defaults: {input_html: { class: "form-control" }}, html: { method: :put, class: 'form-horizontal' } do |f|
       .modal-content
         .modal-header
           %a.close{"data-dismiss" => "modal"} ×
-          %h4 New Event
+          %h4 Edit Event
         .modal-body
           .row
             .col-sm-6
@@ -12,8 +12,8 @@
               = f.input :artists
               = f.input :ticket_url
               = f.input :ticket_price
-              = f.input :perform_date, input_html: { class: "datetimepicker form-control", readonly: true }
-              = f.input :on_sale_datetime, input_html: { class: "datetimepicker form-control", readonly: true }
+              = f.input :perform_date, as: :string, input_html: { class: "datetimepicker form-control", readonly: true }
+              = f.input :on_sale_datetime, as: :string, input_html: { class: "datetimepicker form-control", readonly: true }
               = f.input :description, as: :text
             .col-sm-6.hidden-xs
               = f.input :venue_name, input_html: { "googleplace" => "", "ng-model" => "venue.name" }
@@ -23,7 +23,6 @@
               = f.input :country, input_html: { "ng-model"=>"venue.country" }, as: :string
               = f.hidden_field :latitude, input_html: { "ng-model"=>"venue.latitude" }
               = f.hidden_field :longitude, input_html: { "ng-model"=>"venue.longitude" }
-
               / %carousel{interval: 2000}
               /   %slide{active: "photo.active", "ng-repeat" => "photo in venue.photo_thumbs"}
               /     %img{"ng-src" => "{{photo.image}}", style: "margin:auto;"}/

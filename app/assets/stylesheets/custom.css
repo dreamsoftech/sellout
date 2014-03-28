@@ -187,3 +187,23 @@ a:hover, a:focus {
 	margin: 0 auto;
 	float: none;
 }
+
+th.action {
+	width: 160px;
+}
+
+.pac-container {
+  background-color: #FFF;
+  z-index: 10060;
+  position: fixed;
+  display: inline-block;
+  float: left;
+}
+
+textarea.form-control {
+	height: 160px !important;
+}
+
+.form-control[readonly] {
+	background-color: white;
+}

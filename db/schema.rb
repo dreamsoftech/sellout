@@ -11,7 +11,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140223185355) do
+ActiveRecord::Schema.define(:version => 20140307174122) do
+
+  create_table "artists", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name",                :null => false
+    t.string   "mbid",                :null => false
+    t.string   "space_url"
+    t.string   "website"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title",                                             :null => false
+    t.string   "description",      :limit => 5000
+    t.string   "artists",                                           :null => false
+    t.string   "ticket_url",                                        :null => false
+    t.string   "ticket_price",                                      :null => false
+    t.datetime "perform_date",                                      :null => false
+    t.datetime "on_sale_datetime"
+    t.string   "venue_name",                                        :null => false
+    t.string   "address",                                           :null => false
+    t.string   "city",                                              :null => false
+    t.string   "state",                                             :null => false
+    t.string   "country",                                           :null => false
+    t.decimal  "latitude",                         :default => 0.0
+    t.decimal  "longitude",                        :default => 0.0
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

@@ -1,10 +1,10 @@
-.modal.fade{ role: "dialog", id: "add-event" }
+.modal.fade{ role: "dialog", id: "artist-" + artist.id.to_s }
   .modal-dialog
-    = simple_form_for Artist.new, :url => artists_path, :defaults => {:input_html =>{ :class => "form-control" }}, :html => {:class => 'form-vertical'} do |f|
+    = simple_form_for artist, url: artist_path(artist), defaults: {input_html: { class: "form-control" }}, html: { method: :put, class: 'form-horizontal' } do |f|
       .modal-content
         .modal-header
           %a.close{"data-dismiss" => "modal"} ×
-          %h4 New Artist
+          %h4 Edit Artist
         .modal-body
           .row
             .col-sm-7
@@ -15,8 +15,8 @@
               = f.input :twitter
               = f.input :facebook
             .col-sm-5
-              = image_tag f.object.avatar.url, class: "img-thumbnail img-responsive img-avatar mgn-t-20"
+              = image_tag artist.avatar.url(:medium), class: "img-thumbnail img-responsive img-avatar mgn-t-20"
               = f.file_field :avatar, class: "hide file-avatar"
         .modal-footer
-          = f.button :submit, "Create", :class => 'btn-primary'
+          = f.button :submit, "Update", :class => 'btn-primary'
           %a.btn.btn-default{"data-dismiss" => "modal", href: "#"} Close
