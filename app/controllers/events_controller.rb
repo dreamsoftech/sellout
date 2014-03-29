@@ -11,6 +11,8 @@ class EventsController < ApplicationController
 		  :name => params[:id]
 		})
 
+    render layout: "application"
+
 	end
 
 	def new
