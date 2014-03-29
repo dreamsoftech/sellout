@@ -212,3 +212,39 @@ textarea.form-control {
 body.home .navbar .navbar-nav > li > a {
   font-size: 14px;
 }
+
+/* fix for Twitter Bootstrap handling of responsive images */
+
+#about-us #map {
+	height: 400px;
+}
+#about-us #map img {
+    max-width: inherit;
+}
+.shrink {
+    font-size: 8;
+}
+
+.true:hover {
+    background-color: lightgreen;
+}
+
+.false:hover {
+    background-color: lightpink;
+}
+
+.marker-labels {
+    color: red;
+    background-color: white;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    width: 40px;
+    border: 1px solid black;
+    white-space: nowrap;
+}
+
+.gm-style .gm-style-iw div {
+  overflow: hidden !important;
+}

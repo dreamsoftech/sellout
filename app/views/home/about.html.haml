@@ -1,26 +1,54 @@
 #about-us.container
-	.row
-		.section-title
-			%h2.text-center We Love What We Do
-	.row
-		.col-sm-6
-			%h4
-				Our Philosophy
-			%h4
-				We're committed to making our site easy to use.
+  .row
+    .section-title
+      %h2.text-center We Love What We Do
+  .row
+    .col-sm-6
+      %h4
+        Our Philosophy
+      %h4
+        We're committed to making our site easy to use.
 
-			%br
-			%h4 The Platform At A Glance
-			%p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
-				
-			%br
+      %br
+      %h4 The Platform At A Glance
+      %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
+        
+      %br
 
-			%h4 --
-			%p
-				At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
+      %h4 --
+      %p
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
 
-			%br
-			%br
+      %br
+      %br
 
-		.col-sm-6
-			%img.img-thumbnail.img-responsive{src: "/assets/location.png"}
+    .col-sm-6
+      .row
+        #map.mgn-t-30{style: "height: 400px"}
+:javascript
+  var map;
+  var charlestown = new google.maps.LatLng(32.778543, -79.931044);
+  $(document).ready(function(){
+    var mapOptions = {
+      zoom: 17,
+      center: charlestown,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map"),
+    mapOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: "Here we are. Welcome anytime."
+    });
+
+    var marker = new google.maps.Marker({
+      position: charlestown,
+      map: map,
+      title: 'Here we are.'
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+
+  });
