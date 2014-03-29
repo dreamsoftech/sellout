@@ -5,7 +5,7 @@
     .featured-grid
       .box-white.min-height-200
         .alert.alert-danger(ng-show="loading == false && events.length == 0")
-          %h4 There is no concerts.
+          There is no concerts.
 
         .grid-item.grid-style-properties
           .item{"ng-repeat" => "event in events", "ng-show"=>"loading != true"}
