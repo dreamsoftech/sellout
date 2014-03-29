@@ -2241,14 +2241,14 @@ angular.module("template/carousel/slide.html", []).run(["$templateCache", functi
 
 angular.module("template/datepicker/datepicker.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/datepicker/datepicker.html",
-    "<table>\n" +
+    "<table class='table dt-picker'>\n" +
     "  <thead>\n" +
     "    <tr>\n" +
-    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left\" ng-click=\"move(-1)\"><i class=\"glyphicon glyphicon-chevron-left\"></i></button></th>\n" +
-    "      <th colspan=\"{{rows[0].length - 2 + showWeekNumbers}}\"><button type=\"button\" class=\"btn btn-default btn-sm btn-block\" ng-click=\"toggleMode()\"><strong>{{title}}</strong></button></th>\n" +
-    "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-right\" ng-click=\"move(1)\"><i class=\"glyphicon glyphicon-chevron-right\"></i></button></th>\n" +
+    "      <th><a style=\"width:100%;\" class=\"btn btn-default pull-left\" ng-click=\"move(-1)\"><i class=\"glyphicon glyphicon-chevron-left\"></i></a></th>\n" +
+    "      <th colspan=\"{{rows[0].length - 2 + showWeekNumbers}}\"><a style=\"width:100%;\" class=\"text-center btn btn-default\" ng-click=\"toggleMode()\"><strong>{{title}}</strong></a></th>\n" +
+    "      <th><a style=\"width:100%;\" class=\"btn btn-default pull-right\" ng-click=\"move(1)\"><i class=\"glyphicon glyphicon-chevron-right\"></i></a></th>\n" +
     "    </tr>\n" +
-    "    <tr ng-show=\"labels.length > 0\" class=\"h6\">\n" +
+    "    <tr ng-show=\"labels.length > 0\" class=\"h5\">\n" +
     "      <th ng-show=\"showWeekNumbers\" class=\"text-center\">#</th>\n" +
     "      <th ng-repeat=\"label in labels\" class=\"text-center\">{{label}}</th>\n" +
     "    </tr>\n" +
@@ -2257,7 +2257,7 @@ angular.module("template/datepicker/datepicker.html", []).run(["$templateCache",
     "    <tr ng-repeat=\"row in rows\">\n" +
     "      <td ng-show=\"showWeekNumbers\" class=\"text-center\"><em>{{ getWeekNumber(row) }}</em></td>\n" +
     "      <td ng-repeat=\"dt in row\" class=\"text-center\">\n" +
-    "        <button type=\"button\" style=\"width:100%;\" class=\"btn btn-default btn-sm\" ng-class=\"{'btn-info': dt.selected}\" ng-click=\"select(dt.date)\" ng-disabled=\"dt.disabled\"><span ng-class=\"{'text-muted': dt.secondary}\">{{dt.label}}</span></button>\n" +
+    "        <a style=\"width:100%;\" class=\"btn btn-default\" ng-class=\"{'btn-primary': dt.selected}\" ng-click=\"select(dt.date)\" ng-disabled=\"dt.disabled\"><span ng-class=\"{'text-muted': dt.secondary}\">{{dt.label}}</span></a>\n" +
     "      </td>\n" +
     "    </tr>\n" +
     "  </tbody>\n" +
