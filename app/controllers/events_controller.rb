@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 		@artist = Bandsintown::Artist.get({
 		  :name => params[:id]
 		})
-
+    @friends = FbGraph::User.fetch('kevin.reed.5055')
     render layout: "application"
 
 	end

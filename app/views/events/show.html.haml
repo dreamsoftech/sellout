@@ -1,86 +1,27 @@
-#content
-  .news-carousel-wrapper
-    %dl#news-carousel.news-carousel-style
-      %dt
-        %a{href: "#"} News Link Here
-      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
-      %dt
-        %a{href: "#"} Promo Link Here
-      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
-      %dt
-        %a{href: "#"} Another Link Here
-      %dd Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet, ipsum dolor sit amet.
-  / End News Carousel
-  .container
-    .row
-      .col-md-9
-        .panel.right-line
-          %h2.main-heading.bottom-line
-            %span.main-circle-icon
-              %i.icon-building
-            #{@artist.name}'s Upcoming events
-          %table#event-list.table.table-hover
-            %thead
-              %tr
-                %th Title
-                / %th Description
-                %th Location
-                %th Date
-                %th Artists
-                %th
-            %tbody
-              - @artist.events.each do |event|
-                %tr
-                  %td=event.title
-                  / %td=event.description
-                  %td #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
-                  %td=event.datetime
-                  %td
-                    - event.artists.each do |artist|
-                      %p
-                        %img.img-tiny{src: artist.image_url}
-                        #{artist.name}
-                  %td
-                    - if event.ticket_status == "unavailable"
-                      Unavailable
-                    - else
-                      = link_to "GET TICKET", event.ticket_url, class: "btn btn-default"
+.container.events-list
+  .row.mgn-t-30
+    .col-md-9
+      %h3.mgn-b-10
+        %i.icon-calendar
+        Upcoming events
 
-            / END DETAIL
-      .col-md-3
-        .panel
-          %h3.main-heading.bottom-line.line-before
-            %span.main-circle-icon
-              %i.icon-user
-            Artist
-          .agent-panel.bottom-line.line-before
-            %a.agent-image{href: "#"}
-              %img.img-polaroid{alt: "agent", src: "#{@artist.image_url}"}/
-            %ul.list-unstyled.margin20
-              %li
-                %i.icon-phone
-                (+89)98732.984
-              %li
-                %i.icon-envelope
-                agent@company.com
-              %li
-                %i.icon-facebook
-                angel
-              %li
-                %i.icon-twitter
-                @angel
-          / END Detail Agent
-          / FORM CONTACT
-          %h3.main-heading.bottom-line.line-before
-            %span.main-circle-icon
-              %i.icon-envelope-alt
-            Contact Agent
-          %form
-            %label Name
-            %input.form-control{name: "name", placeholder: "Enter Your Name", required: "", type: "text"}/
-            %label Email
-            %input.form-control{name: "email", placeholder: "Enter Your Email", required: "", type: "email"}/
-            %label Message
-            %textarea.form-control{name: "message", placeholder: "Your Message", required: "", rows: "5"}
-            .clearfix
-              %input.btn.btn-default{type: "submit", value: "Send"}/
+      .box-white.min-height-200
+        - @artist.events.each do |event|
+          .clearfix.border-1
+            .col-md-3
+              %h4
+                #{event.datetime.strftime("%c")}
+            .col-md-9
+              %ul.list-inline
+                - event.artists.each do |artist|
+                  %li
+                    %img.img-tiny{src: artist.image_url}
+                    #{artist.name}
+              %h4
+                %b Location: 
+                #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
+
+              = link_to "GET TICKET", event.ticket_url, class: "btn btn-danger"
+    .col-md-3.mgn-t-30
+      %img.img-thumbnail{alt: "agent", src: "#{@artist.image_url}"}/
+      %h3.mgn-t-20.text-center #{@artist.name}

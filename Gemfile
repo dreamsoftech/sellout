@@ -24,6 +24,8 @@ gem 'geocoder', "~> 1.1.8"
 gem 'angularjs-rails'
 gem 'aws-sdk', '~> 1.5.7'
 gem 'paperclip'
+gem 'fb_graph'
+gem 'twitter'
 
 group :development do
   gem 'better_errors'
