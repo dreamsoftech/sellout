@@ -31,4 +31,4 @@
                   %td
                     = link_to "<i class='icon-edit'></i> Edit".html_safe, "#event-#{event.id}", class: "btn btn-default btn-sm", data: { toggle: "modal" }
                     = render partial: "modify", locals: {event: event}
-                    = link_to "<i class='icon-remove'></i> Remove".html_safe, event_path(event), data: { confirm: "Are you sure to remove this?"} , method: :delete, class: "btn btn-danger btn-sm"
+                    = link_to "<i class='icon-remove'></i> Cancel".html_safe, event_path(event), data: { confirm: "Are you sure to remove this?"} , method: :delete, class: "btn btn-danger btn-sm"

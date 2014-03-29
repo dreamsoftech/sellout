@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
 	def show
-		@artist = Bandsintown::Event.get({
+		@artist = Bandsintown::Artist.get({
 		  :name => params[:id]
 		})
 

@@ -21,6 +21,10 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def update
+    
+  end
+
   def destroy
     artist = Artist.find(params[:id])
     if artist.destroy
