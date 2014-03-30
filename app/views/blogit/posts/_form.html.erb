@@ -11,29 +11,30 @@
       </ul>
     </div>
   <% end %>
-  <div style="width: 50%">
-    <%= field do %>
-      <%= f.label :tag_list, t(:name, scope: 'blogit.posts') %>
-      <%= f.text_field :title, placeholder: t(:give_your_post_a_title, scope: 'blogit.posts'), class: "form-control" %>
-    <% end %>
-    <%= field id: "new_blog_post_tag_field" do %>
-      <%= f.label :tag_list, t(:tags, scope: 'blogit.posts') %>
-      <%= f.text_field :tag_list, placeholder: t(:tag_placeholder, scope: 'blogit.posts'), class: "form-control" %>
-    <% end %>
+  <div class="row">
+    <div class="col-md-5">
+      <%= field do %>
+        <%= f.label :tag_list, t(:name, scope: 'blogit.posts') %>
+        <%= f.text_field :title, placeholder: t(:give_your_post_a_title, scope: 'blogit.posts'), class: "form-control" %>
+      <% end %>
+      <%= field id: "new_blog_post_tag_field" do %>
+        <%= f.label :tag_list, t(:tags, scope: 'blogit.posts') %>
+        <%= f.text_field :tag_list, placeholder: t(:tag_placeholder, scope: 'blogit.posts'), class: "form-control" %>
+      <% end %>
 
-    <p class="blog_post_tip">
-      <%=t :tip_you_can_style_your_post_using, scope: 'blogit.posts', parser: blogit_conf.default_parser %>
-    </p>
+      <p class="blog_post_tip">
+        <%=t :tip_you_can_style_your_post_using, scope: 'blogit.posts', parser: blogit_conf.default_parser %>
+      </p>
+    </div>
+    <div class="col-md-8">
+      <%= field do %>
+        <%= f.text_area :body, placeholder: t(:write_something_here, scope: 'blogit.posts'), class: "form-control blog-desc" %>
+      <% end %>
+      <br>
+      <%= actions do %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+        <%= link_to(t(:cancel, scope: 'blogit.posts'), @post.new_record? ? blog_root_path : post_path(@post), class: "btn btn-danger") %>
+      <% end %>
+    </div>
   </div>
-  <div class="col-md-8">
-    <%= field do %>
-      <%= f.text_area :body, placeholder: t(:write_something_here, scope: 'blogit.posts'), class: "form-control blog-desc" %>
-    <% end %>
-    <br>
-  </div>
-  <%= actions do %>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-    <%= link_to(t(:cancel, scope: 'blogit.posts'), @post.new_record? ? blog_root_path : post_path(@post), class: "btn btn-danger") %>
-  <% end %>
-
 <% end %>
