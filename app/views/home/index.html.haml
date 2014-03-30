@@ -2,5 +2,9 @@
   = render "banner"
   .container
     = render "searchbar"
-    #venue_view
+    #list_view{"ng-if"=>"view=='list'"}
+      = render "list"
+    #calendar_view{"ng-if"=>"view=='calendar'"}
+      = render "calendar"
+    #venue_view{"ng-if"=>"view=='venue'"}
       = render "venues"

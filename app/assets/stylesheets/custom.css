@@ -209,7 +209,10 @@ textarea.form-control {
 }
 
 /* Home Nav font size*/
-body.home .navbar .navbar-nav > li > a {
+body.home .navbar .navbar-nav > li > a,
+body.registrations .navbar .navbar-nav > li > a,
+body.sessions .navbar .navbar-nav > li > a
+{
   font-size: 14px;
 }
 

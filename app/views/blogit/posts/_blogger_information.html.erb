@@ -1,5 +1,9 @@
 <%= blog_tag :footer do %>
-  <%=t :published_by, scope: 'blogit.posts', author: post.blogger_display_name %>
-  <%# Render the no. of comments %>
-  <%= render "blogit/posts/comments_count", post: post %>
+  <p>
+    Published by 
+    <em><%= post.blogger_display_name %></em>
+    &nbsp;with 
+    <%# Render the no. of comments %>
+    <%= render "blogit/posts/comments_count", post: post %>
+  </p>
 <% end %>

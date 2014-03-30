@@ -8,7 +8,7 @@
     %script{src:"http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"}
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body.home(ng-app="selloutApp")
+  %body.home(ng-app="selloutApp" class="#{controller.controller_name}")
     / Start Wrapper
     #wrapper
       = render "layouts/navigation"
