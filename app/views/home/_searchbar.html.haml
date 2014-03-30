@@ -16,19 +16,6 @@
         %span of
         %input{name: "location", autocomplete: "off", "ng-model" => "location", placeholder: "Input location", type: "text", googleplace: "(cities)", "onclick"=>"this.select()"}
 
-        / %input.input-small.datepicker{name: "start_date", placeholder: "Start Date", type: "text", value: "#{params[:start_date]}"}
-        / %input.input-small.datepicker{name: "end_date", placeholder: "End Date", type: "text", value: "#{params[:end_date]}"}
-
-        / .form-group-form
-        /   .form-group.half.pull-left
-        /     %label.checkbox
-        /       %input{type: "checkbox"}
-        /         Recommended
-        /   .form-group.half.text-left.pull-right
-        /     %label.checkbox
-        /       %input{type: "checkbox"}
-        /         Sale
-      .pull-right
         .btn-group
           = change_view('list', 'Upcomming')
           = change_view('calendar', 'Calendar')

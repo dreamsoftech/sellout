@@ -26,6 +26,8 @@ gem 'aws-sdk', '~> 1.5.7'
 gem 'paperclip'
 gem 'fb_graph'
 gem 'twitter'
+gem 'blogit'
+gem 'bootstrap-wysihtml5-rails'
 
 group :development do
   gem 'better_errors'

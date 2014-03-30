@@ -19,5 +19,6 @@
 //= require angular-bootstrap
 //= require_directory ./common
 //= require_directory ./plugin
+//= require bootstrap-wysihtml5/b3
 //= require proper
 //= require_tree .

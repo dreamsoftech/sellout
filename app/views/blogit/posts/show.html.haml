@@ -1,0 +1,9 @@
+.container.blog
+  .col-sm-8
+    = render @post
+    = share_bar_for @post
+    = render "blogit/posts/post_footer", post: @post
+    %h4 Comments
+    = comments_for @post
+  .col-sm-4
+    = render "blogit/posts/related", post: @post

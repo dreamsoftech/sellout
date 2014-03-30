@@ -9,3 +9,5 @@ $ ->
     todayBtn: true
     pickerPosition: "bottom-left"
   })
+
+  $('#post_body').wysihtml5()

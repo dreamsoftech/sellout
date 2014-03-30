@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for [post, comment], remote: true,
+      html: {
+        class: "new_blog_comment", id: "new_blog_comment" } do |f| -%>
+
+      <br>
+      <h4><%=t :leave_a_comment, scope: 'blogit.comments'%></h4>
+
+      <%= field class: "hidden" do %>
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname %>
+        Hide me using CSS
+      <% end %>
+
+      <%= field do %>
+        <%= f.label :name, t(:name, scope: 'blogit.comments') %><br>
+        <%= f.text_field :name, class: "form-control" %>
+        <%= errors_on(comment, :name) %>
+      <% end %>
+
+      <%= field do %>
+        <%= f.label :email, t(:email_never_displayed, scope: 'blogit.comments') %><br>
+        <%= f.email_field :email, class: "form-control" %>
+        <%= errors_on(comment, :email) %>
+      <% end %>
+
+      <%= field do %>
+        <%= f.label :website, t(:your_website, scope: 'blogit.comments') %><br>
+        <%= f.url_field :website, class: "form-control" %>
+        <%= errors_on(comment, :website) %>
+      <% end %>
+
+      <%= field do %>
+        <%= f.label :body, t(:your_comment, scope: 'blogit.comments') %><br>
+        <%= f.text_area :body, class: "form-control" %><br>
+        <%= errors_on(comment, :body) %>
+      <% end %>
+
+      <%= actions do %>
+        <%= f.submit t(:add_comment, scope: 'blogit.comments'), :disable_with => t(:adding_comment, scope: 'blogit.comments'), class: "btn btn-primary" %>
+      <% end %>
+    <% end -%>
+  </div>
+</div>

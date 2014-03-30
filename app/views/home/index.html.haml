@@ -1,10 +1,6 @@
-#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents(); today();')
+#content(ng-controller="HomeController" ng-init='location="#{params[:location]}"; getEvents();')
   = render "banner"
   .container
     = render "searchbar"
-    #list_view{"ng-if"=>"view=='list'"}
-      = render "list"
-    #calendar_view{"ng-if"=>"view=='calendar'"}
-      = render "calendar"
-    #venue_view{"ng-if"=>"view=='venue'"}
+    #venue_view
       = render "venues"

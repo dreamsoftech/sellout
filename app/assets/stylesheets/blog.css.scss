@@ -1,7 +1,4 @@
-body.posts{
-	.blog_post {
-
-	}
+.blog {
 	a {
 		text-decoration: none;
 	}
@@ -28,6 +25,11 @@ body.posts{
 
 	textarea {
 		height: 200px;
+		resize: none;
+	}
+
+	textarea.blog-desc {
+		height: 350px !important;
 		resize: none;
 	}
 

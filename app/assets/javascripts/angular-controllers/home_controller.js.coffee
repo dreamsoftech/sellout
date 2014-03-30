@@ -62,10 +62,14 @@ angular.module("selloutApp").controller "HomeController", ($scope, $http, $filte
       $scope.map.center.longitude = p.geometry.location.lng()
     $scope.getEvents()
 
-  onMarkerClicked = (marker) ->
-    $scope.prevMarker.showWindow = false  if $scope.prevMarker
+  markerToClose = null
+
+  $scope.onMarkerClicked = (marker) ->
+    if markerToClose
+      markerToClose.showWindow = false
+    markerToClose = marker # for next go around
     marker.showWindow = true
-    $scope.prevMarker = marker
+    $scope.$apply()
 
   $scope.getEvents = ->
     $scope.loading = true
@@ -84,23 +88,26 @@ angular.module("selloutApp").controller "HomeController", ($scope, $http, $filte
       else
         $(".galcolumn").remove()
         $scope.events = result
-        $scope.map.markers = []
-        result.forEach (event) ->
-          $scope.map.markers.push
-            latitude: event.venue.latitude
-            longitude: event.venue.longitude
-            image_url: $scope.artistImageUrl(event)
-            ticket_url: event.ticket_url
-            address: event.venue.name
 
-        _.each $scope.map.markers, (marker) ->
-          marker.closeClick = ->
-            marker.showWindow = false
-            $scope.$apply()
+        if $scope.view == 'venue'
+          markers = []
+          _.each result, (event) ->
+            markers.push
+              latitude: event.venue.latitude
+              longitude: event.venue.longitude
+              image_url: $scope.artistImageUrl(event)
+              ticket_url: event.ticket_url
+              address: event.venue.name
+              showWindow: false
 
-          marker.onClicked = ->
-            onMarkerClicked marker
-            $scope.$apply()
+          _.each markers, (marker) ->
+            marker.closeClick = ->
+              marker.showWindow = false
+              $scope.$apply()
+
+            marker.onClicked = ->
+              $scope.onMarkerClicked(marker)
+          $scope.map.markers = markers
 
         $scope.$apply()
         init_grid()  if $scope.view is "list"

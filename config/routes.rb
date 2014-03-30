@@ -1,4 +1,6 @@
 Sellout::Application.routes.draw do
+  mount Blogit::Engine => "/blog"
+
   get "/about"  => "home#about"
   get "/contact"  => "home#contact"
   get "/faq"  => "home#faq"
@@ -10,7 +12,7 @@ Sellout::Application.routes.draw do
   root :to => "home#index"
 
   get "/venues" => "home#venues"
-  
+
   devise_for :users
   resources :users
 
