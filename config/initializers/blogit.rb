@@ -28,7 +28,7 @@ Blogit.configure do |config|
   # config.cache_pages = false
 
   # No. of posts to show per page
-  config.posts_per_page = 2
+  config.posts_per_page = 5
 
   # The name of the before filter we'll call to authenticate the current user.
   config.authentication_method = :login_required
@@ -52,7 +52,7 @@ Blogit.configure do |config|
 
   # If blog content contains code, this should be highlighted using
   # albino.
-  config.highlight_code_syntax = true
+  config.highlight_code_syntax = false
 
   # RSS Feed title content
   config.rss_feed_title = "A blog about ponies!"
