@@ -1,4 +1,5 @@
 <%= blog_tag :footer do %>
-    <%=t :written_by, scope: 'blogit.posts', author: post.blogger_display_name %>
-    <%= time_tag(post.created_at, pubdate: true, format: blogit_conf.datetime_format) %>
+  <%=t :published_by, scope: 'blogit.posts', author: post.blogger_display_name %>
+  <%# Render the no. of comments %>
+  <%= render "blogit/posts/comments_count", post: post %>
 <% end %>

@@ -1,4 +1,5 @@
-<%= content_tag(:div, class: "blog_post_comments_count", id: "blog_post_#{post.id}_comments_count") do %>
+<%= content_tag(:span, class: "", id: "blog_post_#{post.id}_comments_count") do %>
+   with 
   <%= link_to(post_path(post, anchor: "comments")) do %>
   	<i class="icon-comments"></i>
     <%=t :comment, scope: 'blogit.posts', count: post.comments_count %>

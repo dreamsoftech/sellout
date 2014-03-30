@@ -1,4 +1,4 @@
-<%= content_tag(:article, id: "blog_post_#{post.id}", class: "blog_post") do %>
+<%= content_tag(:article, id: "blog_post_#{post.id}", class: "post") do %>
 
   <%# Render the header for this blog post %>
   <%= render "blogit/posts/post_head", post: post %>
@@ -9,11 +9,4 @@
   <%# Render admin links to edit/delete this post %>
   <%= render "blogit/posts/post_links", post: post %>
 
-  <%# Render info about the person who wrote this post %>
-  <%= render "blogit/posts/blogger_information", post: post %>
-
-  <%# Render the no. of comments %>
-  <%= render "blogit/posts/comments_count", post: post %>
-
 <% end %>
-<hr>

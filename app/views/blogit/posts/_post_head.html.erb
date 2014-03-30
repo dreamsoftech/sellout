@@ -1,3 +1,22 @@
 <%= blog_tag :header do %>
-  <%= content_tag(:h2, link_to(post.title, post)) %>
+  <div class="post-header">
+    <div class="post-date">
+
+      <div class="blog-date">
+        <span class="blog-date-month"><%= post.created_at.strftime("%b") %></span>
+        <span class="blog-date-day"><%= post.created_at.day %></span>
+        <span class="blog-date-year"><%= post.created_at.year %></span>
+      </div>
+
+    </div>
+
+    <div class="post-title">
+      <%= content_tag(:h1, link_to(post.title, post)) %>
+      <%# Render info about the person who wrote this post %>
+      <%= render "blogit/posts/blogger_information", post: post %>
+    </div>
+
+    <div class="clearfix"></div>  
+
+  </div>
 <% end %>
