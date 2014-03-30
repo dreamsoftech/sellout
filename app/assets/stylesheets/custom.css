@@ -216,6 +216,11 @@ body.sessions .navbar .navbar-nav > li > a
   font-size: 14px;
 }
 
+body.posts .navbar .navbar-nav > li > a {
+  font-size: 12px;
+}
+
+
 /* fix for Twitter Bootstrap handling of responsive images */
 
 #about-us #map {
