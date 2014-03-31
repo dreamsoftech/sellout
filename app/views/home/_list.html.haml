@@ -3,7 +3,7 @@
     .loading.text-center(ng-show="loading == true")
       %img{src: "/assets/ajax-loader.gif"}
     .featured-grid
-      .box-white.min-height-200
+      .box-white
         .alert.alert-danger(ng-show="loading == false && events.length == 0")
           There is no concerts.
 
@@ -22,4 +22,7 @@
 
   .col-md-4
     .box-white
-      %img.img-responsive.center{src: "/assets/ads.jpg"}
+      %img.img-responsive{src: "/assets/logo.jpg"}
+    %br
+    .box-white
+      %img.img-responsive{src: "/assets/ads.jpg"}

@@ -2,20 +2,18 @@
   .col-sm-12
     #search-panel.clearfix
       .pull-left
-        %span
-          Concerts within
-        %select{name: "distance", required: "", "ng-model"=>"distance", "ng-change"=>"getEvents()"}
-          %option{value: "2"} 2 miles
-          %option{value: "3"} 3 miles
-          %option{value: "5"} 5 miles
-          %option{value: "10"} 10 miles
-          %option{value: "15"} 15 miles
-          %option{value: "20"} 20 miles
-          %option{value: "30"} 30 miles
-          %option{value: "40"} 40 miles
-        %span of
-        %input{name: "location", autocomplete: "off", "ng-model" => "location", placeholder: "Input location", type: "text", googleplace: "(cities)", "onclick"=>"this.select()"}
-
+        / %select{name: "distance", required: "", "ng-model"=>"distance", "ng-change"=>"getEvents()"}
+        /   %option{value: "2"} 2 miles
+        /   %option{value: "3"} 3 miles
+        /   %option{value: "5"} 5 miles
+        /   %option{value: "10"} 10 miles
+        /   %option{value: "15"} 15 miles
+        /   %option{value: "20"} 20 miles
+        /   %option{value: "30"} 30 miles
+        /   %option{value: "40"} 40 miles
+        / %span of
+        / %input{name: "location", autocomplete: "off", "ng-model" => "location", placeholder: "Input location", type: "text", googleplace: "(cities)", "onclick"=>"this.select()"}
+      .pull-right
         .btn-group
           = change_view('list', 'Upcomming')
           = change_view('calendar', 'Calendar')

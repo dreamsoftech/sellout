@@ -1,7 +1,7 @@
 angular.module("selloutApp").controller "HomeController", ($scope, $http, $filter) ->
   $scope.location = ""
   $scope.view = "list"
-  $scope.distance = 2
+  $scope.distance = 25
   $scope.events = []
   $scope.map =
     options:
@@ -16,10 +16,10 @@ angular.module("selloutApp").controller "HomeController", ($scope, $http, $filte
       minZoom: 3
 
     center:
-      latitude: 45
-      longitude: -73
+      latitude: 32.791288
+      longitude: -79.943205
 
-    zoom: 12
+    zoom: 13
     dragging: false
     bounds: {}
     markers: []
@@ -57,9 +57,11 @@ angular.module("selloutApp").controller "HomeController", ($scope, $http, $filte
 
   $scope.getLocation = ->
     p = $scope.gPlace.getPlace()
+    ###
     if p.geometry and p.geometry.location
       $scope.map.center.latitude = p.geometry.location.lat()
       $scope.map.center.longitude = p.geometry.location.lng()
+    ###
     $scope.getEvents()
 
   markerToClose = null
