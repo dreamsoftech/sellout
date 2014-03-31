@@ -21,6 +21,8 @@
               = f.input :city, input_html: { "ng-model"=>"venue.city" }
               = f.input :state, input_html: { "ng-model"=>"venue.state" }
               = f.input :country, input_html: { "ng-model"=>"venue.country" }, as: :string
+              = f.input :phone_number, input_html: { "ng-model"=>"venue.phone_number" }
+              = f.input :website, input_html: { "ng-model"=>"venue.website" }
               = f.hidden_field :latitude, input_html: { "ng-model"=>"venue.latitude" }
               = f.hidden_field :longitude, input_html: { "ng-model"=>"venue.longitude" }
               / %carousel{interval: 2000}
