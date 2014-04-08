@@ -22,7 +22,8 @@
             %a{href: "/blog"}
               %i.icon-comments
               %span Blogs
-          %li{class: active_sub_menu('posters')}
-            %a{href: "/posters"}
-              %i.icon-quote-right
-              %span Posters
+          - if current_user.has_role? :admin
+            %li{class: active_sub_menu('posters')}
+              %a{href: "/posters"}
+                %i.icon-quote-right
+                %span Posters
