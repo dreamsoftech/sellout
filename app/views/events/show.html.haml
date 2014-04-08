@@ -33,11 +33,6 @@
     .col-md-3.mgn-t-30
       - posters = Poster.all
       - posters.each do |poster|
-        - unless poster.image.file_size > 0
+        - unless poster.image_file_size > 0
           = image_tag poster.image.url, class: "img-responsive"
         = poster.description.html_safe
-        %p
-          %strong Website
-        = link_to poster.website, poster.website, style: "word-wrap: break-word"
-
-        %embed{width:"100%", height:"auto", src: poster.video_url}
