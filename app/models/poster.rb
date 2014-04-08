@@ -2,6 +2,7 @@ class Poster < ActiveRecord::Base
   attr_accessible :image, :description, :time, :video_url, :website
 
   has_attached_file :image, 
+    styles: { :small => "100x100>" },
     path: "upload/:class/:attachment/:style/:filename",
     default_url: "/assets/missing.jpg",
     storage: :s3,
