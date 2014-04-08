@@ -1,4 +1,4 @@
 class Poster < ActiveRecord::Base
-  attr_accessible :artist, :description, :time, :video_url, :website
+  attr_accessible :artist_name, :description, :time, :video_url, :website
 
 end
