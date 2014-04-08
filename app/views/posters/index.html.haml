@@ -22,7 +22,7 @@
             %tbody
               - @posters.each do |poster|
                 %tr
-                  %td= poster.artist
+                  %td= poster.artist_name
                   %td= poster.website
                   %td= poster.video_url
                   %td= poster.created_at.to_date
