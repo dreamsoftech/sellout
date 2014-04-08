@@ -18,7 +18,7 @@ class PostersController < ApplicationController
 
   def update
     poster = Poster.find(params[:id])
-    if post.update_attributes(params[:poster])
+    if poster.update_attributes(params[:poster])
       redirect_to posters_path, notice: "Poster is updated successfully"
     else
       redirect_to posters_path, alert: "Failed to update the poster"

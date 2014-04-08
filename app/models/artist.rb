@@ -1,5 +1,5 @@
 class Artist < ActiveRecord::Base
-  attr_accessible :name, :mbid, :space_url, :website, :facebook, :twitter, :avatar
+  attr_accessible :name, :mbid, :space_url, :website, :facebook, :twitter, :avatar, :description, :embed_video
 
   belongs_to :user
 

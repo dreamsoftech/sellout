@@ -11,4 +11,4 @@ $ ->
   })
 
   $('#post_body').wysihtml5()
-  $('.poster-description').wysihtml5()
+  $('.poster-description').wysihtml5({ "html": true })

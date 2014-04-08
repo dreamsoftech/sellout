@@ -14,9 +14,7 @@
           %table.table.table-bordered.table-striped
             %thead
               %tr
-                %th Active
-                %th Image
-                %th Time
+                %th Artist
                 %th Website
                 %th Video Url
                 %th Created Date
@@ -24,11 +22,7 @@
             %tbody
               - @posters.each do |poster|
                 %tr
-                  %td
-                    %input{type: "radio"}
-                  %td
-                    = image_tag poster.image.url(:small)
-                  %td= poster.time
+                  %td= poster.artist
                   %td= poster.website
                   %td= poster.video_url
                   %td= poster.created_at.to_date

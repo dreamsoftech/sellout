@@ -10,10 +10,12 @@
             .col-sm-7
               = f.input :name, :autofocus => true
               = f.input :mbid
+              = f.input :embed_video
               = f.input :space_url
               = f.input :website
               = f.input :twitter
               = f.input :facebook
+              = f.input :description
             .col-sm-5
               = image_tag f.object.avatar.url, class: "img-thumbnail img-responsive img-avatar mgn-t-20"
               = f.file_field :avatar, class: "hide file-avatar"

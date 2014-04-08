@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140408143118) do
+ActiveRecord::Schema.define(:version => 20140408152701) do
 
   create_table "artists", :force => true do |t|
     t.integer  "user_id"
@@ -68,26 +68,21 @@ ActiveRecord::Schema.define(:version => 20140408143118) do
     t.string   "city",                                              :null => false
     t.string   "state",                                             :null => false
     t.string   "country",                                           :null => false
-    t.string   "phone_number",                                      :null => false
-    t.string   "website",                                           :null => false
     t.decimal  "latitude",                         :default => 0.0
     t.decimal  "longitude",                        :default => 0.0
     t.datetime "created_at",                                        :null => false
     t.datetime "updated_at",                                        :null => false
+    t.string   "phone_number"
+    t.string   "website"
   end
 
   create_table "posters", :force => true do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "time"
-    t.boolean  "active"
-    t.string   "video_url"
-    t.string   "website"
-    t.string   "description",        :limit => 5000
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.string   "artist"
+    t.string   "video_url",   :limit => 400
+    t.string   "website",     :limit => 400
+    t.string   "description", :limit => 5000
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "roles", :force => true do |t|

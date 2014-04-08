@@ -31,8 +31,11 @@
 
               = link_to "GET TICKET", event.ticket_url, class: "btn btn-danger"
     .col-md-3.mgn-t-30
+      = image_tag "/assets/poster/poster1.png", class: "img-responsive"
       - posters = Poster.all
       - posters.each do |poster|
-        - unless poster.image_file_size > 0
-          = image_tag poster.image.url, class: "img-responsive"
+        %br
         = poster.description.html_safe
+        = link_to poster.website, poster.website, style: "word-wrap: break-word"
+        = poster.video_url.html_safe
+        %br
