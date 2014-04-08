@@ -31,12 +31,13 @@
 
               = link_to "GET TICKET", event.ticket_url, class: "btn btn-danger"
     .col-md-3.mgn-t-30
-      - poster = Poster.first
-      - unless poster.nil?
-        = image_tag poster.image.url, class: "img-responsive"
+      - posters = Poster.all
+      - posters.each do |poster|
+        - unless poster.image.file_size > 0
+          = image_tag poster.image.url, class: "img-responsive"
         = poster.description.html_safe
         %p
           %strong Website
         = link_to poster.website, poster.website, style: "word-wrap: break-word"
 
-        %embed{width:"100%", height:"auto", src: "http://www.youtube.com/embed/XGSy3_Czz8k"}
+        %embed{width:"100%", height:"auto", src: poster.video_url}
