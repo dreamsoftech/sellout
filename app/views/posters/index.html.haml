@@ -1,0 +1,38 @@
+#poster-list.row
+  .widget.stacked
+    .widget-header
+      %h3
+        %i.icon-calendar
+        Posters
+    .widget-content.min-height-200
+      .row
+        .col-sm-12.text-right
+          = link_to "New Poster", "#add-poster", class: "btn btn-primary", data: { toggle: "modal" }
+        = render "new"
+      .row
+        .col-sm-12
+          %table.table.table-bordered.table-striped
+            %thead
+              %tr
+                %th Active
+                %th Image
+                %th Time
+                %th Website
+                %th Video Url
+                %th Created Date
+                %th.action
+            %tbody
+              - @posters.each do |poster|
+                %tr
+                  %td
+                    %input{type: "radio"}
+                  %td
+                    = image_tag poster.image.url
+                  %td= poster.time
+                  %td= poster.website
+                  %td= poster.video_url
+                  %td= poster.created_at.to_date
+                  %td
+                    = link_to "<i class='icon-edit'></i> Edit".html_safe, "#poster-#{poster.id}", class: "btn btn-default btn-sm", data: { toggle: "modal" }
+                    = render partial: "modify", locals: {poster: poster}
+                    = link_to "<i class='icon-remove'></i> Cancel".html_safe, poster_path(poster), data: { confirm: "Are you sure to remove this?"} , method: :delete, class: "btn btn-danger btn-sm"

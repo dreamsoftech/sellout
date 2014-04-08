@@ -14,6 +14,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :city,           null: false
       t.string :state,          null: false
       t.string :country,        null: false
+
       t.decimal :latitude,      default: 0
       t.decimal :longitude,     default: 0
 

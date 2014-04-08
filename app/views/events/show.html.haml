@@ -1,6 +1,14 @@
 .container.events-list
   .row.mgn-t-30
     .col-md-9
+      .row
+        .col-sm-4
+          %img.img-thumbnail{alt: "agent", src: "#{@artist.image_url}"}/
+        .col-sm-8
+          %h4 #{@artist.name}
+          %strong Description:
+
+      %br
       %h3.mgn-b-10
         %i.icon-calendar
         Upcoming events
@@ -23,5 +31,12 @@
 
               = link_to "GET TICKET", event.ticket_url, class: "btn btn-danger"
     .col-md-3.mgn-t-30
-      %img.img-thumbnail{alt: "agent", src: "#{@artist.image_url}"}/
-      %h3.mgn-t-20.text-center #{@artist.name}
+      - poster = Poster.first
+      - unless poster.nil?
+        = image_tag poster.image.url, class: "img-responsive"
+        = poster.description.html_safe
+        %p
+          %strong Website
+        = link_to poster.website, poster.website, style: "word-wrap: break-word"
+
+        %embed{width:"100%", height:"auto", src: "http://www.youtube.com/embed/XGSy3_Czz8k"}

@@ -1,0 +1,17 @@
+.modal.fade{ role: "dialog", id: "poster-#{poster.id}" }
+  .modal-dialog
+    = simple_form_for poster, :url => poster_path(poster), :defaults => {required: false, :input_html =>{ :class => "form-control" }}, :html => {:class => 'form-vertical' } do |f|
+      .modal-content
+        .modal-header
+          %a.close{"data-dismiss" => "modal"} ×
+          %h4 Edit Poster
+        .modal-body
+          = image_tag f.object.image.url, class: "img-thumbnail img-responsive img-avatar"
+          = f.file_field :image, class: "hide file-avatar"
+          = f.input :video_url
+          = f.input :website
+          = f.input :description, as: :text, input_html: { class: "blog-desc" }
+
+        .modal-footer
+          = f.button :submit, "Create", :class => 'btn-primary'
+          %a.btn.btn-default{"data-dismiss" => "modal", href: "#"} Close

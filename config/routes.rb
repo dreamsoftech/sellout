@@ -18,4 +18,5 @@ Sellout::Application.routes.draw do
 
   resources :events
   resources :artists
+  resources :posters
 end
