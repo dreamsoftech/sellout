@@ -2,23 +2,19 @@
   .col-md-8.events-list
     .loading.text-center(ng-show="loading == true")
       %img{src: "/assets/ajax-loader.gif"}
-    .featured-grid
-      .box-white
-        .alert.alert-danger(ng-show="loading == false && events.length == 0")
-          There is no concerts.
-
-        .grid-item.grid-style-properties
-          .item{"ng-repeat" => "event in events", "ng-show"=>"loading != true"}
-            %a.with-hover{href: "events/{{removeWhitespace(event.artists[0].name)}}"}
-              %img.full{"ng-src"=>"{{artistImageUrl(event)}}"}
-              %span.mask_hover
-                %br
-                %h2.link DETAIL INFO
-                %h4.link {{event.datetime}}
-                %ul.list-inline
-
-            %p
-              {{event.venue.name}}, {{event.venue.city}}, {{event.venue.region}}
+    .alert.alert-danger(ng-show="loading == false && events.length == 0")
+      There is no concerts.
+    .row
+      .col-sm-4.event{"ng-repeat" => "event in events", "ng-if" => "$index > 0"}
+        %a.with-hover{href: "events/{{removeWhitespace(event.artists[0].name)}}"}
+          %img.full{"ng-src"=>"{{artistImageUrl(event)}}"}
+          %span.mask_hover
+            %br
+            %h2.link DETAIL INFO
+            %h4.link {{event.datetime}}
+            %ul.list-inline
+        .brief
+          %p {{event.venue.name}}
 
   .col-md-4
     .box-white

@@ -88,7 +88,6 @@ angular.module("selloutApp").controller "HomeController", ($scope, $http, $filte
         $scope.errorMsg = result.errors
         $scope.$apply()
       else
-        $(".galcolumn").remove()
         $scope.events = result
 
         if $scope.view == 'venue'
@@ -110,9 +109,7 @@ angular.module("selloutApp").controller "HomeController", ($scope, $http, $filte
             marker.onClicked = ->
               $scope.onMarkerClicked(marker)
           $scope.map.markers = markers
-
-        $scope.$apply()
-        init_grid()  if $scope.view is "list"
+      $scope.$apply()
     ).fail (result) ->
       $scope.loading = false
       $scope.$apply()

@@ -5,7 +5,6 @@ $( document ).ready(function() {
     /*link back to top animation*/
     init_back_to_top();
 
-    init_grid();
 });
 
 
@@ -20,16 +19,6 @@ function init_back_to_top(){
         }, 800);
         return false;
     });
-}
-
-
-function init_grid(){
-    $(".grid-item").gridalicious({
-        width: 215,
-        gutter: 20,
-        animate: true,
-        effect: 'fadeInOnAppear'
-    }); 
 }
 
 //================================

@@ -17,15 +17,18 @@
         - @artist.events.each do |event|
           .clearfix.border-1
             .col-md-3
-              %h4
-                #{event.datetime.strftime("%c")}
+              / #{event.datetime.strftime("%c")}
+              %p.datetime
+                Sun Apr 13 2014
+              %p.datetime
+                22:00 PM
+
             .col-md-9
               %ul.list-inline
                 - event.artists.each do |artist|
-                  %li
+                  %li.text-left
                     %img.img-tiny{src: artist.image_url}
-                    #{artist.name}
-              %h4
+              %p
                 %b Location: 
                 #{event.venue.name}, #{event.venue.city}, #{event.venue.region}
 

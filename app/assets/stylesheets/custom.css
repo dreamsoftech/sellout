@@ -256,3 +256,7 @@ body.posts .navbar .navbar-nav > li > a {
 .gm-style .gm-style-iw div {
   overflow: hidden !important;
 }
+
+.btn-medium {
+  padding: 9px 12px;
+}
